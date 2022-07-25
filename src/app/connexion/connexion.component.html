@@ -1,0 +1,32 @@
+<section class="d-flex ">
+	<div class="w-75 d-flex flex-column align-items-center">
+	 	<h3>Déjà client ? Connectez-vous:</h3>
+		
+        <p class="mb-0"><label for="identifiant">Identifiant</label></p>
+        <input name = "identifiant" type = "text" [(ngModel)]="cli.id" required/><br>
+    
+        <p class="mb-0"><label for="mdp">Mot de passe</label></p>
+        <input name = "mdp" type = "password" [(ngModel)]="cli.password" required/><br>
+    
+        <button (click)="connect()" class="btn btn-primary" style="margin:0 auto;"> Connexion </button>
+		 
+	</div>
+	<div class="w-75 d-flex flex-column align-items-center">
+		<h3>Première visite ? Inscrivez-vous:</h3>
+		<form action = "../menu/inscription" method="post" modelAttribute="newclient" class="d-flex flex-column align-items-center">
+			<p class="mb-0"><label for="nom">Nom</label></p>
+			<input name = "nom" type = "text" placeholder="Votre nom" required/><br>
+			
+			<p class="mb-0"><label for="prenom">Prenom</label></p>
+			<input name = "prenom" type = "text" placeholder="Votre prenom" required/><br>
+			
+			<p class="mb-0"><label for="adresse">Adresse</label></p>
+			<input name = "adresse" type = "text" placeholder="Votre adresse" required/><br>
+			
+			<p class="mb-0"><label for="password">Mot de passe</label></p>
+			<input name = "password" type = "password" required/><br>
+		
+			<input type = "submit" value ="S'inscrire" class="btn btn-primary"/>
+		</form>
+	</div>
+  </section>

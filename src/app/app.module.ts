@@ -8,12 +8,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AccueilComponent } from './accueil/accueil.component';
+import { ChoixarticleComponent } from './choixarticle/choixarticle.component';
+import { ConfirmationconnexionComponent } from './confirmationconnexion/confirmationconnexion.component';
+import { ConfirmationinscriptionComponent } from './confirmationinscription/confirmationinscription.component';
+import { CatalogueComponent } from './catalogue/catalogue.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { ErreurconnexionComponent } from './erreurconnexion/erreurconnexion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AccueilComponent,
+    ChoixarticleComponent,
+    ConfirmationconnexionComponent,
+    ConfirmationinscriptionComponent,
+    CatalogueComponent,
+    ConnexionComponent,
+    ErreurconnexionComponent
   ],
   imports: [
     BrowserModule,
