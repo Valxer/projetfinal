@@ -27,4 +27,11 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/catalogue']);
   }
 
+  deconnexion(){
+    sessionStorage.setItem("client",null);
+    sessionStorage.setItem("panier",null);
+    sessionStorage.setItem("totalp",null);
+    this.accueil();
+  }
+
 }

@@ -8,8 +8,4 @@ export class Client {
     adresse:string;
     commandes: Array<Commande>;
 
-    constructor(id:string, password:string){
-        this.id=id;
-        this.password=password;
-    }
 }

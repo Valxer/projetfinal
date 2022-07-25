@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Client } from '../client';
+import { ClientService } from '../client.service';
 
 @Component({
   selector: 'app-connexion',
@@ -10,23 +11,20 @@ import { Client } from '../client';
 })
 export class ConnexionComponent implements OnInit {
 
-  cli= new Client("","");
+  cli= new Client();
+  newclient= new Client();
 
-  constructor(private http: HttpClient,private router: Router ) { }
+  constructor(private http: HttpClient,private router: Router,private srv: ClientService ) { }
 
   ngOnInit(): void {
+    this.newclient.id=null;
   }
 
   connect(){
-    this.http.get<Client>("http://localhost:8080/api/client/login/"+ this.cli.id +"/"+ this.cli.password ).subscribe(
-    reponse=>{this.cli=reponse;
-      sessionStorage.setItem("client", JSON.stringify(this.cli));
-      this.router.navigate(['/confirmationconnexion']);
-    },
-    err=>{console.log("***************KO");
-    this.router.navigate(['/erreurconnexion']);}
-    );
-    
+    this.srv.connect(this.cli);
   }
 
+  create(){
+    this.srv.create(this.newclient);
+  }
 }
