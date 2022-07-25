@@ -1,0 +1,34 @@
+<header>
+    <a href="../menu/accueil" class="d-flex justify-content-center"><img src="https://zupimages.net/up/22/30/uej9.png" height="200"></a>
+    <nav class="navbar-dark bg-black" style="height:60px;">
+          <ul class="nav justify-content-around align-items-center text-center h-100">
+            <li class="nav-item"> <a class="nav-link" href="../menu/accueil"> Accueil </a></li>
+            <li class="nav-item"> <a class="nav-link" href="../menu/menu"> Catalogue </a> </li>          
+
+            <div ngbDropdown class="dropdown">
+                <button ngbDropdownToggle class="btn btn-primary" type="button" id="dropdownMenuButton1" aria-expanded="false">
+                    Mon compte
+                </button>
+                <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+                    <ng-container *ngIf="client==null" class="d-flex">
+                        <li><a ngbDropdownItem href="../menu/connexion">Connexion/Inscription</a></li>
+                        <li><hr ngbDropdowndivider ></li>
+                        <ng-container *ngIf="admin==null">
+                            <li> <a ngbDropdownItem href='../admin/login'>Admin</a> </li>
+                        </ng-container>
+                        <ng-template #elseBlock>
+                            <li> <a ngbDropdownItem href='../admin/article'>Gestion articles</a> </li>
+                            <li> <a ngbDropdownItem href='../admin/deconnexion'>Deconnexion Admin</a> </li>
+                        </ng-template>
+                    </ng-container>
+                    <ng-template #elseBlock>
+                        <li> <a ngbDropdownItem href='../panier/commande'>Commande</a> </li>
+                        <li> <a ngbDropdownItem href='../menu/deconnexion'>Deconnexion</a> </li>
+                    </ng-template>
+                </ul>
+            </div>
+          </ul>
+    </nav>
+
+    <button class="btn btn-primary"> wesh tu vas etre vert</button>
+</header>
