@@ -18,7 +18,7 @@ export class PanierService {
    * @param achat Un achat avec un Article et une quantite
    */
   ajoutarticle(achat:Achat){
-    let panier: Array<Achat>;
+    let panier: Array<Achat> = [];
     let totalp: number = 0;
     let message:string ="Votre article a bien été ajouté";
     if(achat.quantite>1){
@@ -27,17 +27,17 @@ export class PanierService {
     if (JSON.parse(sessionStorage.getItem("totalp"))!=null) {
       totalp = JSON.parse(sessionStorage.getItem("totalp"));
     }
+    totalp += achat.article.prix * achat.quantite;
     if (JSON.parse(sessionStorage.getItem("panier"))!=null) {
       panier = JSON.parse(sessionStorage.getItem("panier"));
+      panier.forEach(ach => {
+        if (ach.article.ref == achat.article.ref) {
+          ach.quantite += achat.quantite;
+          ach.total += achat.total;
+          achat = null;
+        }
+      });
     }
-    totalp += achat.article.prix * achat.quantite;
-    panier.forEach(ach => {
-      if (ach.article.ref == achat.article.ref) {
-        ach.quantite += achat.quantite;
-        ach.total = ach.quantite * ach.article.prix;
-        achat = null;
-      }
-    });
     if (achat!= null) {
       panier.push(achat);
     }

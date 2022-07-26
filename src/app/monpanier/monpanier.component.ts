@@ -10,16 +10,19 @@ import { Client } from '../client';
 })
 export class MonpanierComponent implements OnInit {
 
-  header: string;
-  panier: Array<Achat>;
+  header: string
+  footer: string
+  panier: Array<Achat>
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    let client = JSON.parse(sessionStorage.getItem("client"));
-    this.header = "La commande de " +  client.nom + " " + client.prenom;
+    if (JSON.parse(sessionStorage.getItem("client"))) {
+      let client = JSON.parse(sessionStorage.getItem("client"));
+      this.header = "La commande de " +  client.nom + " " + client.prenom;
+    }
     if (JSON.parse(sessionStorage.getItem("totalp")) != null) {
-      this.header += " (Montant de panier :" + JSON.parse(sessionStorage.getItem("totalp")) +" €)"
+      this.footer = "Total du panier : " + JSON.parse(sessionStorage.getItem("totalp")) +" €"
     }
     this.panier = JSON.parse(sessionStorage.getItem("panier"));
   }

@@ -7,24 +7,28 @@
                 <tr>
                     <th>Articles</th>
                     <th>Quantité</th>
-                    <th>Prix total</th>
+                    <th>Sous-total</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let achat of panier">
-                    <td>{{achat.article.ref}}</td>
+                    <td>{{achat.article.nom}}</td>
                     <td>{{achat.quantite}}</td>
-                    <td>{{achat.total}}</td>
+                    <td>{{achat.total}} €</td>
                 </tr>
+                <tr>
+                    <td colspan="3" style="text-align: center;"><strong>{{footer}}</strong></td>
+                </tr>
+                    
             </tbody>
         </table>
     </div>
-	<div class="d-flex justify-content-end">
+	<div class="d-flex justify-content-center">
         <ng-container *ngIf="panier == null; else elseBlock">
             <a class='btn btn-secondary' (click)='commande()' role='button'>Panier vide</a>
         </ng-container>
         <ng-template #elseBlock>
-            <a class='btn btn-success me-4' (click)='recap()' role='button'>Valider le panier</a>
+            <a class='btn btn-primary me-4' (click)='recap()' role='button'>Valider le panier</a>
             <a class='btn btn-danger' (click)='reset()' role='button'>Vider le panier</a>
         </ng-template>	
 	</div>

@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Achat } from '../achat';
 import { Article } from '../article';
 import { ArticleService } from '../article.service';
@@ -20,7 +20,7 @@ export class ArticleComponent implements OnInit {
     private route : ActivatedRoute,
     private articlesrv: ArticleService,
     private paniersrv: PanierService,
-    private location: Location
+    private router: Router
     ) {}
     
     ngOnInit(): void {
@@ -37,7 +37,12 @@ export class ArticleComponent implements OnInit {
     let achat = new Achat();
     achat.article = this.article
     achat.quantite = this.quantite;
+    achat.total = this.article.prix * this.quantite
     this.paniersrv.ajoutarticle(achat)
+  }
+
+  goToCatalogue():void {
+    this.router.navigate(['catalogue'])
   }
 
 }
