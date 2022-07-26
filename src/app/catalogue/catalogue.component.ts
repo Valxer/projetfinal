@@ -19,12 +19,6 @@ export class CatalogueComponent implements OnInit {
     err=>{console.log("***************KO");}
     );
   }
-  myFunction(target) {
-    if (target.querySelector(".desc").style.display == "none")
-         target.querySelector(".desc").style.display = "block"
-     else
-         target.querySelector(".desc").style.display = "none"
-  }
 
   goTo(id:number):void {
     const url:string = "/article/" + id

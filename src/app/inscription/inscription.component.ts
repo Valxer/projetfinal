@@ -17,6 +17,9 @@ export class InscriptionComponent implements OnInit {
   ngOnInit(): void {
     this.newclient.id=null;
   }
+  /**
+   * Call ClientService.create to create Create a new Client.
+   */
   create(){
     this.srv.create(this.newclient);
   }

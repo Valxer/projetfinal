@@ -21,19 +21,34 @@ export class HeaderComponent implements OnInit {
     this.loginsrv.logout();
   }
 
+  /**
+   * Navigate to acceuil's page
+   */
   accueil(){
     this.router.navigate(['/accueil']);
   }
+  /**
+   * Navigate to connexion's page
+   */
   connexion(){
     this.router.navigate(['/connexion']);
   }
+  /**
+   * Navigate to catalogue's page
+   */
   catalogue(){
     this.router.navigate(['/catalogue']);
   }
+  /**
+   * Navigate to inscription's page
+   */
   inscription(){
     this.router.navigate(['inscription'])
   }
 
+  /**
+   * Call ClientService.logout() to clear the datas and navigate to accueil's page
+   */
   deconnexion(){
     this.loginsrv.logout();
     this.accueil();

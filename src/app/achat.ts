@@ -1,6 +1,6 @@
+import { Article } from "./article";
+
 export class Achat {
-    nomart:string;
-    Idarticle:number;
+    article:Article;
     quantite:number;
-    total:number;
 }
