@@ -25,10 +25,10 @@
     </div>
 	<div class="d-flex justify-content-center">
         <ng-container *ngIf="panier == null; else elseBlock">
-            <a class='btn btn-secondary' (click)='monpanier()' role='button'>Panier vide</a>
+            <a class='btn btn-secondary' (click)='catalogue()' role='button'>Panier vide: Retourner au catalogue</a>
         </ng-container>
         <ng-template #elseBlock>
-            <a class='btn btn-primary me-4' (click)='recap()' role='button'>Valider le panier</a>
+            <a class='btn btn-primary me-4' (click)='validation()' role='button'>Valider le panier</a>
             <a class='btn btn-danger' (click)='reset()' role='button'>Vider le panier</a>
         </ng-template>	
 	</div>

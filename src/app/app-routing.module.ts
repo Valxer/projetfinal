@@ -9,6 +9,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { ErreurconnexionComponent } from './erreurconnexion/erreurconnexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { MonpanierComponent } from './monpanier/monpanier.component';
+import { ValidationpanierComponent } from './validationpanier/validationpanier.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/accueil', pathMatch: 'full'},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'confirmationinscription', component: ConfirmationinscriptionComponent},
   {path: 'erreurconnexion', component: ErreurconnexionComponent},
   {path: 'monpanier', component: MonpanierComponent},
+  {path: 'validationpanier', component: ValidationpanierComponent},
   {path: 'article/:id', component: ArticleComponent},
 ];
 
