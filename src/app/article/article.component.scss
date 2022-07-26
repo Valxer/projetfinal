@@ -1,0 +1,19 @@
+.articlecard {
+    height: 500px;
+    margin: 50px auto;
+}
+
+#quantite {
+    width: 65px;
+    text-align: center;
+}
+
+.backbtn {
+    width: 350px;
+    margin: 25px auto;
+    background-color: #5c636a;
+    color: white;
+    &:hover {
+        background-color: #6c757d;
+    }
+}
