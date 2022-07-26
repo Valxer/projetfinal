@@ -26,5 +26,9 @@ export class CatalogueComponent implements OnInit {
          target.querySelector(".desc").style.display = "none"
   }
 
+  goTo(id:number):void {
+    const url:string = "/article/" + id
+    this.router.navigate([url])
+  }
 
 }
