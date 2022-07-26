@@ -12,19 +12,21 @@ import { ClientService } from '../client.service';
 export class ConnexionComponent implements OnInit {
 
   cli= new Client();
-  newclient= new Client();
+  
 
-  constructor(private http: HttpClient,private router: Router,private srv: ClientService ) { }
+  constructor(private router: Router,private srv: ClientService ) { }
 
   ngOnInit(): void {
-    this.newclient.id=null;
+    
   }
 
   connect(){
     this.srv.connect(this.cli);
   }
 
-  create(){
-    this.srv.create(this.newclient);
+  inscription(){
+    this.router.navigate(['inscription'])
   }
+
+  
 }

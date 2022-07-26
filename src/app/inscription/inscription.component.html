@@ -1,0 +1,46 @@
+<div class="w-75 d-flex flex-column align-items-center">
+    <div class="d-flex flex-column align-items-center">
+        <h3>Veuillez Remplir ces champs pour vous inscrire</h3>
+        <p class="mb-0"><label for="nom">Identifiant</label></p>
+        <input name = "login"  type = "text" placeholder="Votre Identifiant" [(ngModel)]="newclient.id" required #login="ngModel">
+        <div *ngIf="login.invalid && (login.dirty || login.touched)" >
+            <div *ngIf="login.errors?.['required']" class="validation">
+                *L'identifiant doit etre rempli.*
+            </div>
+        </div>
+        
+        <p class="mb-0"><label for="nom">Nom</label></p>
+        <input name = "nom" type = "text" placeholder="Votre nom" [(ngModel)]="newclient.nom" required #nom="ngModel"/>
+        <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" >
+            <span *ngIf="nom.errors?.['required']" class="validation">
+                *Le nom doit etre rempli.*
+            </span>
+        </div>
+        
+        <p class="mb-0"><label for="prenom">Prenom</label></p>
+        <input name = "prenom" type = "text" placeholder="Votre prenom" [(ngModel)]="newclient.prenom" required #prenom="ngModel"/>
+        <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" >
+            <span *ngIf="prenom.errors?.['required']" class="validation">
+                *Le prenom doit etre rempli.*
+            </span>
+        </div>
+
+        <p class="mb-0"><label for="adresse">Adresse</label></p>
+        <input name = "adresse" type = "text" placeholder="Votre adresse" [(ngModel)]="newclient.adresse" required #adresse="ngModel"/>
+        <div *ngIf="adresse.invalid && (adresse.dirty || adresse.touched)" >
+            <span *ngIf="adresse.errors?.['required']" class="validation">
+                *L'adresse doit etre remplie.*
+            </span>
+        </div>
+        
+        <p class="mb-0"><label for="password">Mot de passe</label></p>
+        <input name = "password" type = "password" [(ngModel)]="newclient.password" required #password="ngModel"/>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" >
+            <span *ngIf="password.errors?.['required']" class="validation">
+                *Le mot de passe doit etre rempli.*
+            </span>
+        </div>
+    
+        <button (click)="create()" type="submit" class="btn btn-primary"> S'inscrire</button>
+    </div>
+</div>

@@ -6,11 +6,13 @@ import { ConfirmationconnexionComponent } from './confirmationconnexion/confirma
 import { ConfirmationinscriptionComponent } from './confirmationinscription/confirmationinscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ErreurconnexionComponent } from './erreurconnexion/erreurconnexion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [
   {path: 'accueil', component: AccueilComponent},
   {path: 'catalogue', component: CatalogueComponent},
   {path: 'connexion', component: ConnexionComponent},
+  {path: 'inscription', component: InscriptionComponent},
   {path: 'confirmationconnexion', component: ConfirmationconnexionComponent},
   {path: 'confirmationinscription', component: ConfirmationinscriptionComponent},
   {path: 'erreurconnexion', component: ErreurconnexionComponent}
