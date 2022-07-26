@@ -10,6 +10,7 @@ import { ErreurconnexionComponent } from './erreurconnexion/erreurconnexion.comp
 import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: '/accueil', pathMatch: 'full'},
   {path: 'accueil', component: AccueilComponent},
   {path: 'catalogue', component: CatalogueComponent},
   {path: 'connexion', component: ConnexionComponent},

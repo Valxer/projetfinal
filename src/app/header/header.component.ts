@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Client } from '../client';
+import { ClientService } from '../client.service';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,16 @@ import { Client } from '../client';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  client: Client=null;
+  Logmessage:any;
   admin: any; //TDL
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginsrv: ClientService) {
+    
+   }
 
   ngOnInit(): void {
-    this.client=JSON.parse(sessionStorage.getItem("client"));
+    this.loginsrv.getLoggedIn.subscribe(name=>this.Logmessage = name)
+    this.loginsrv.logout();
   }
 
   accueil(){
@@ -26,11 +30,12 @@ export class HeaderComponent implements OnInit {
   catalogue(){
     this.router.navigate(['/catalogue']);
   }
+  inscription(){
+    this.router.navigate(['inscription'])
+  }
 
   deconnexion(){
-    sessionStorage.setItem("client",null);
-    sessionStorage.setItem("panier",null);
-    sessionStorage.setItem("totalp",null);
+    this.loginsrv.logout();
     this.accueil();
   }
 
