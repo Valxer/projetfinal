@@ -1,5 +1,5 @@
-<section class="d-flex ">
-	<div class="w-75 d-flex flex-column align-items-center">
+
+	<div class="d-flex flex-column align-items-center">
 	 	<h3>Déjà client ? Connectez-vous:</h3>
 		
         <p class="mb-0"><label for="identifiant">Identifiant</label></p>
@@ -9,32 +9,10 @@
         <input name = "mdp" type = "password" [(ngModel)]="cli.password" required/><br>
     
         <button (click)="connect()" class="btn btn-primary" style="margin:0 auto;"> Connexion </button>
-		 
-	</div>
-	<div class="w-75 d-flex flex-column align-items-center">
-        <form action="" autocomplete="off">
-		<h3>Première visite ? Inscrivez-vous:</h3>
-        <p class="mb-0"><label for="nom">Identifiant</label></p>
-        <input name = "login" id="login" type = "text" placeholder="Votre login" [(ngModel)]="newclient.id" required #login="ngModel">
-        <div *ngIf="login.invalid && (login.dirty || login.touched)" class="alert">
-            <span *ngIf="login.errors?.['required']">
-                Name is required.
-            </span>
+        <div>
+        <hr>
+        <h3>Première visite ? Inscrivez-vous:</h3>
         </div>
-
-        <p class="mb-0"><label for="nom">Nom</label></p>
-        <input name = "nom" type = "text" placeholder="Votre nom" [(ngModel)]="newclient.nom" required/><br>
-        
-        <p class="mb-0"><label for="prenom">Prenom</label></p>
-        <input name = "prenom" type = "text" placeholder="Votre prenom" [(ngModel)]="newclient.prenom" required/><br>
-        
-        <p class="mb-0"><label for="adresse">Adresse</label></p>
-        <input name = "adresse" type = "text" placeholder="Votre adresse" [(ngModel)]="newclient.adresse" required/><br>
-        
-        <p class="mb-0"><label for="password">Mot de passe</label></p>
-        <input name = "password" type = "password" [(ngModel)]="newclient.password" required/><br>
-    
-        <button (click)="create()" type="submit" class="btn btn-primary"> S'inscrire</button>
-        </form>
+        <button class="btn btn-primary" (click)="inscription()">Inscription</button>
+		
 	</div>
-  </section>

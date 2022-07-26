@@ -15,6 +15,7 @@ import { ConfirmationinscriptionComponent } from './confirmationinscription/conf
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ErreurconnexionComponent } from './erreurconnexion/erreurconnexion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ErreurconnexionComponent } from './erreurconnexion/erreurconnexion.comp
     ConfirmationinscriptionComponent,
     CatalogueComponent,
     ConnexionComponent,
-    ErreurconnexionComponent
+    ErreurconnexionComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,

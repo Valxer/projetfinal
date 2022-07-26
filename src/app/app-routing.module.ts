@@ -8,6 +8,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { ErreurconnexionComponent } from './erreurconnexion/erreurconnexion.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: '/accueil', pathMatch: 'full'},
   {path: 'accueil', component: AccueilComponent},
   {path: 'catalogue', component: CatalogueComponent},
   {path: 'connexion', component: ConnexionComponent},
