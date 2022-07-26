@@ -6,5 +6,4 @@ export class Article {
     description:string;
     prix:number;
     image:string;
-    commandes: Array<IdCommandeArticle>;
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
+import { ArticleComponent } from './article/article.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { ConfirmationconnexionComponent } from './confirmationconnexion/confirmationconnexion.component';
 import { ConfirmationinscriptionComponent } from './confirmationinscription/confirmationinscription.component';
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'inscription', component: InscriptionComponent},
   {path: 'confirmationconnexion', component: ConfirmationconnexionComponent},
   {path: 'confirmationinscription', component: ConfirmationinscriptionComponent},
-  {path: 'erreurconnexion', component: ErreurconnexionComponent}
+  {path: 'erreurconnexion', component: ErreurconnexionComponent},
+  {path: 'article/:id', component: ArticleComponent},
 ];
 
 @NgModule({
