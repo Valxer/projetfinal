@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginsrv.getLoggedIn.subscribe(name=>this.Logmessage = name)
-    this.loginsrv.logout();
   }
 
   /**

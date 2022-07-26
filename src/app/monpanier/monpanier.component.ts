@@ -25,10 +25,15 @@ export class MonpanierComponent implements OnInit {
   }
 
   /**
-   * Navigate to commande's page
+   * Navigate to monpanier's page. Check if client is still connected.
    */
-   commande(){
-    this.router.navigate(['commande'])
+   monpanier(){
+    if (JSON.parse(sessionStorage.getItem("client"))==null) {
+      this.router.navigate(['connexion'])
+    }else{
+      this.router.navigate(['monpanier'])
+    }
+    
   }
   /**
    * Navigate to recap's page

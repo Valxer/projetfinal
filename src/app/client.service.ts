@@ -23,7 +23,6 @@ export class ClientService {
       return of(true);
   } else {
       this.getLoggedIn.next('Se Connecter');
-      console.log("aie")
       return of(false);
   }}
 
@@ -60,18 +59,19 @@ export class ClientService {
     this.http.get<Client>("http://localhost:8080/api/client/login/"+ cli.id +"/"+ cli.password ).subscribe(
     reponse=>{cli=reponse;
       sessionStorage.setItem("client", JSON.stringify(cli));
-      this.router.navigate(['/confirmationconnexion']);
-      return true;
+      if (JSON.parse(sessionStorage.getItem("client"))!= null) {
+        this.router.navigate(['/confirmationconnexion']);
+        return true;
+      }else{
+        this.router.navigate(['/erreurconnexion']);
+        return false;
+      } 
     },
     err=>{console.log("***************KO");
     this.router.navigate(['/erreurconnexion']);
-    return false;
     });  
-    if (sessionStorage.getItem("client")) {
-      return true;
-    }else{
-      return false;
-    }
+    return false;
+    
   }
 }
 
