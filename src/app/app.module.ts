@@ -17,6 +17,7 @@ import { ErreurconnexionComponent } from './erreurconnexion/erreurconnexion.comp
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ArticleComponent } from './article/article.component';
 import { MonpanierComponent } from './monpanier/monpanier.component';
+import { ValidationpanierComponent } from './validationpanier/validationpanier.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MonpanierComponent } from './monpanier/monpanier.component';
     ErreurconnexionComponent,
     InscriptionComponent,
     ArticleComponent,
-    MonpanierComponent
+    MonpanierComponent,
+    ValidationpanierComponent
   ],
   imports: [
     BrowserModule,
