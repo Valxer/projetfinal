@@ -18,9 +18,15 @@ export class ConnexionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Call ClientService.login(Client) to connect a Client(ID,password). It will update the LogginMessage and Store the Client Data in SessionStorage.
+   */
   connect(){
     this.srv.login(this.cli);
   }
+  /**
+   * Navigate to inscription's page
+   */
   inscription(){
     this.router.navigate(['inscription'])
   }

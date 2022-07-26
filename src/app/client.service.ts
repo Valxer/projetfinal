@@ -13,6 +13,10 @@ export class ClientService {
 
   constructor(private http: HttpClient,private router: Router) { }
 
+  /**
+   * Set the EventEmitter depending on the client connexion and Call connect(cli)
+   * @param cli partial client with ID and password
+   */
   login(cli:Client): Observable<boolean>{
     if (this.connect(cli)) {
       this.getLoggedIn.next('Mon Compte');
@@ -21,9 +25,11 @@ export class ClientService {
       this.getLoggedIn.next('Se Connecter');
       console.log("aie")
       return of(false);
-  }
-  }
+  }}
 
+  /**
+   * Disconnect the client and empty every session items.
+   */
   logout(): void {
     sessionStorage.setItem("client",null);
     sessionStorage.setItem("panier",null);
@@ -31,6 +37,10 @@ export class ClientService {
     this.getLoggedIn.next('Se Connecter');
   }
 
+  /**
+   * Create a new Client in the DB
+   * @param client Complete Client(ID,nom,prenom,adresse,password)
+   */
   create(client:Client):void{
     this.http.post("http://localhost:8080/api/client/create",JSON.stringify(client),{
       headers: new HttpHeaders({
@@ -41,6 +51,11 @@ export class ClientService {
     },err => {console.log("crud service post KO")});  
   }
 
+  /**
+   * Connect a partial Client(ID,Password) and store a complete Client(ID,nom,prenom,adresse,password) in the sessionStorage
+   * @param cli partial Client(ID,Password)
+   * @returns Return true if the connexion succeeded
+   */
   connect(cli:Client):boolean{
     this.http.get<Client>("http://localhost:8080/api/client/login/"+ cli.id +"/"+ cli.password ).subscribe(
     reponse=>{cli=reponse;
