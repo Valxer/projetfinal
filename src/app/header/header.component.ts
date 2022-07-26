@@ -45,6 +45,12 @@ export class HeaderComponent implements OnInit {
   inscription(){
     this.router.navigate(['inscription'])
   }
+  /**
+   * Navigate to monpanier's page
+   */
+   monpanier(){
+    this.router.navigate(['monpanier'])
+  }
 
   /**
    * Call ClientService.logout() to clear the datas and navigate to accueil's page

@@ -14,7 +14,7 @@ export class PanierService {
 
   /**
    * Ajoute un Achat au panier pour le sotcker dans le sessionStorage. Actualise également le total du panier.
-   * Augmente la quantité d'un achat si un article de meme nature est deja présent dans le panier.
+   * Augmente la quantité d'un achat si un article identique est deja présent dans le panier.
    * @param achat Un achat avec un Article et une quantite
    */
   ajoutarticle(achat:Achat){
@@ -24,16 +24,17 @@ export class PanierService {
     if(achat.quantite>1){
       message ="Vos articles ont bien été ajoutés"
     }
-    if (sessionStorage.getItem("totalp")!=null) {
+    if (JSON.parse(sessionStorage.getItem("totalp"))!=null) {
       totalp = JSON.parse(sessionStorage.getItem("totalp"));
     }
-    if (sessionStorage.getItem("panier")!=null) {
+    if (JSON.parse(sessionStorage.getItem("panier"))!=null) {
       panier = JSON.parse(sessionStorage.getItem("panier"));
     }
     totalp += achat.article.prix * achat.quantite;
     panier.forEach(ach => {
       if (ach.article.ref == achat.article.ref) {
         ach.quantite += achat.quantite;
+        ach.total = ach.quantite * ach.article.prix;
         achat = null;
       }
     });
