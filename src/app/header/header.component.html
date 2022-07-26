@@ -9,8 +9,10 @@
     <nav class="navbar-dark bg-secondary bg-opacity-25" style="height:60px;">
           <ul class="nav justify-content-around align-items-center text-center h-100">
             <li class="nav-item"> <a (click)="accueil()"> Accueil </a></li>
-            <li class="nav-item"> <a (click)="catalogue()"> Catalogue </a> </li>          
-            <li class="nav-item"> <a (click)="monpanier()"> Mon Panier </a> </li>    
+            <li class="nav-item"> <a (click)="catalogue()"> Catalogue </a> </li>   
+            <ng-container *ngIf="Logmessage =='Mon Compte'" class="d-flex">
+                <li class="nav-item"> <a (click)="monpanier()"> Mon Panier </a> </li>  
+            </ng-container>
             <div ngbDropdown class="dropdown">
                 <button ngbDropdownToggle class="btn btn-primary" id="dropdownMenuButton1" aria-expanded="false">
                     {{Logmessage}}

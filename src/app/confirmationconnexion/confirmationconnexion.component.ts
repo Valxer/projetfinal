@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../client';
+import { ClientService } from '../client.service';
 
 @Component({
   selector: 'app-confirmationconnexion',
@@ -8,10 +9,11 @@ import { Client } from '../client';
 })
 export class ConfirmationconnexionComponent implements OnInit {
   client: Client;
-  constructor() { }
+  constructor(private srv: ClientService) { }
 
   ngOnInit(): void {
     this.client=JSON.parse(sessionStorage.getItem("client"));
+    this.srv.Islogged();
   }
 
 }
