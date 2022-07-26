@@ -8,6 +8,7 @@ import { ConfirmationinscriptionComponent } from './confirmationinscription/conf
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ErreurconnexionComponent } from './erreurconnexion/erreurconnexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { MonpanierComponent } from './monpanier/monpanier.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/accueil', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'confirmationconnexion', component: ConfirmationconnexionComponent},
   {path: 'confirmationinscription', component: ConfirmationinscriptionComponent},
   {path: 'erreurconnexion', component: ErreurconnexionComponent},
+  {path: 'monpanier', component: MonpanierComponent},
   {path: 'article/:id', component: ArticleComponent},
 ];
 
