@@ -18,8 +18,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginsrv.getLoggedIn.subscribe(name=>this.Logmessage = name)
+    this.loginsrv.init();
   }
 
+  /**
+   * Navigate to monpanier's page
+   */
+   monpanier(){
+    this.router.navigate(['/monpanier']);
+  }
   /**
    * Navigate to acceuil's page
    */
@@ -43,12 +50,6 @@ export class HeaderComponent implements OnInit {
    */
   inscription(){
     this.router.navigate(['inscription'])
-  }
-  /**
-   * Navigate to monpanier's page
-   */
-   monpanier(){
-    this.router.navigate(['monpanier'])
   }
 
   /**

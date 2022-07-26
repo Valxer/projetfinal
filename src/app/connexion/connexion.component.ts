@@ -22,7 +22,7 @@ export class ConnexionComponent implements OnInit {
    * Call ClientService.login(Client) to connect a Client(ID,password). It will update the LogginMessage and Store the Client Data in SessionStorage.
    */
   connect(){
-    this.srv.login(this.cli);
+    this.srv.connect(this.cli);
   }
   /**
    * Navigate to inscription's page

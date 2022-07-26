@@ -8,8 +8,9 @@ import { Client } from './client';
   providedIn: 'root'
 })
 export class ClientService {
+  bool:boolean = false;
 
-  @Output() getLoggedIn: EventEmitter<any> = new EventEmitter();
+  public getLoggedIn = new Subject();
 
   constructor(private http: HttpClient,private router: Router) { }
 
@@ -17,14 +18,26 @@ export class ClientService {
    * Set the EventEmitter depending on the client connexion and Call connect(cli)
    * @param cli partial client with ID and password
    */
-  login(cli:Client): Observable<boolean>{
-    if (this.connect(cli)) {
-      this.getLoggedIn.next('Mon Compte');
+  Islogged(): Observable<boolean>{
+    if (JSON.parse(sessionStorage.getItem("client"))!=null) {
+      this.getLoggedIn.next('Mon Compte');      
       return of(true);
   } else {
       this.getLoggedIn.next('Se Connecter');
+      
       return of(false);
   }}
+
+  init(): void {
+    if (JSON.parse(sessionStorage.getItem("client"))!=null)
+      this.getLoggedIn.next('Mon Compte');
+    else{
+      sessionStorage.setItem("client",null);
+      sessionStorage.setItem("panier",null);
+      sessionStorage.setItem("totalp",null);
+      this.getLoggedIn.next('Se Connecter');
+    }
+  }
 
   /**
    * Disconnect the client and empty every session items.
@@ -55,24 +68,36 @@ export class ClientService {
    * @param cli partial Client(ID,Password)
    * @returns Return true if the connexion succeeded
    */
-  connect(cli:Client):boolean{
+  connect(cli:Client){
     this.http.get<Client>("http://localhost:8080/api/client/login/"+ cli.id +"/"+ cli.password ).subscribe(
     reponse=>{cli=reponse;
       sessionStorage.setItem("client", JSON.stringify(cli));
-      if (JSON.parse(sessionStorage.getItem("client"))!= null) {
+      console.log(reponse)
+      if (reponse) {
+        console.log("bonjour");
         this.router.navigate(['/confirmationconnexion']);
-        return true;
       }else{
+        console.log('pk tu serais la');
         this.router.navigate(['/erreurconnexion']);
-        return false;
       } 
     },
     err=>{console.log("***************KO");
     this.router.navigate(['/erreurconnexion']);
-    });  
-    return false;
-    
+    });
   }
+
+  IsConnected():boolean{
+    if (JSON.parse(sessionStorage.getItem("client"))!=null) {
+      console.log('true');
+      
+      return true;
+    } else {
+      console.log('chier');
+      
+      return false;
+    }
+  }
+
 }
 
 
