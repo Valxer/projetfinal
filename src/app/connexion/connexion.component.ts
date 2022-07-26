@@ -19,7 +19,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   connect(){
-    this.srv.connect(this.cli);
+    this.srv.login(this.cli);
   }
   inscription(){
     this.router.navigate(['inscription'])

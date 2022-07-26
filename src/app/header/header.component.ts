@@ -9,13 +9,16 @@ import { ClientService } from '../client.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  userName:any;
+  Logmessage:any;
   admin: any; //TDL
   
-  constructor(private router: Router, private loginsrv: ClientService) { }
+  constructor(private router: Router, private loginsrv: ClientService) {
+    
+   }
 
   ngOnInit(): void {
-    this.loginsrv.getLoggedInName.subscribe(name=>this.userName = name)
+    this.loginsrv.getLoggedIn.subscribe(name=>this.Logmessage = name)
+    this.loginsrv.logout();
   }
 
   accueil(){
@@ -32,9 +35,7 @@ export class HeaderComponent implements OnInit {
   }
 
   deconnexion(){
-    sessionStorage.setItem("client",null);
-    sessionStorage.setItem("panier",null);
-    sessionStorage.setItem("totalp",null);
+    this.loginsrv.logout();
     this.accueil();
   }
 

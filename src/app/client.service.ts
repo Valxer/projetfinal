@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of, Subject } from 'rxjs';
 import { Client } from './client';
@@ -9,18 +9,26 @@ import { Client } from './client';
 })
 export class ClientService {
 
-  public getLoggedInName = new Subject();
+  @Output() getLoggedIn: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient,private router: Router) { }
 
   login(cli:Client): Observable<boolean>{
     if (this.connect(cli)) {
-      this.getLoggedInName.next(cli.nom); 
+      this.getLoggedIn.next('Mon Compte');
       return of(true);
   } else {
-      this.getLoggedInName.next('Sign In');
+      this.getLoggedIn.next('Se Connecter');
+      console.log("aie")
       return of(false);
   }
+  }
+
+  logout(): void {
+    sessionStorage.setItem("client",null);
+    sessionStorage.setItem("panier",null);
+    sessionStorage.setItem("totalp",null);
+    this.getLoggedIn.next('Se Connecter');
   }
 
   create(client:Client):void{
@@ -44,7 +52,11 @@ export class ClientService {
     this.router.navigate(['/erreurconnexion']);
     return false;
     });  
-    return false;
+    if (sessionStorage.getItem("client")) {
+      return true;
+    }else{
+      return false;
+    }
   }
 }
 
