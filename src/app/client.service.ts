@@ -23,8 +23,7 @@ export class ClientService {
       this.getLoggedIn.next('Mon Compte');      
       return of(true);
   } else {
-      this.getLoggedIn.next('Se Connecter');
-      
+      this.getLoggedIn.next('Se Connecter');      
       return of(false);
   }}
 
@@ -74,28 +73,14 @@ export class ClientService {
       sessionStorage.setItem("client", JSON.stringify(cli));
       console.log(reponse)
       if (reponse) {
-        console.log("bonjour");
         this.router.navigate(['/confirmationconnexion']);
       }else{
-        console.log('pk tu serais la');
         this.router.navigate(['/erreurconnexion']);
       } 
     },
     err=>{console.log("***************KO");
     this.router.navigate(['/erreurconnexion']);
     });
-  }
-
-  IsConnected():boolean{
-    if (JSON.parse(sessionStorage.getItem("client"))!=null) {
-      console.log('true');
-      
-      return true;
-    } else {
-      console.log('chier');
-      
-      return false;
-    }
   }
 
 }
