@@ -17,16 +17,18 @@ ul {
 }
 
 .nav-item {
+    color :#626262;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 40px;
     width: 100px;
     cursor:pointer;
+    font-size:1.2rem;
     transition: 300ms;
     &:hover {
-        color: #6ea820;
-        transform: scale(1.1);
+        color: #90c543;
+        transition: 300ms;
     }
     a {
         width:100%;
