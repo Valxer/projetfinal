@@ -17,8 +17,3 @@ $theme-colors: (
 );
 @import "../node_modules/bootstrap/scss/bootstrap";
 // Then add additional custom code here
-
-a:not([href]):not([class]):hover{
-    color: #6ea820;
-    cursor: pointer;
-}
