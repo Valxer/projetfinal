@@ -122,4 +122,8 @@ export class MonpanierComponent implements OnInit {
     sessionStorage.setItem("totalp", JSON.stringify(this.totalp))
   }
 
+  remove(achat:Achat){    
+    const index = this.panier.indexOf(achat)
+    this.panier.splice(index,1)
+  }
 }
