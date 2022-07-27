@@ -86,19 +86,27 @@ export class MonpanierComponent implements OnInit {
 
   /**
    * add 1 to the quantite of an achat
-   * @param ref the achat position in the panier
+   * @param nom the name of the Article in the panier
    */
-  addQte(ref:number){
-    this.panier[ref].quantite += 1;
+  addQte(nom:string){
+    for (const achat of this.panier) {
+      if (achat.article.nom == nom) {
+        achat.quantite +=1
+      }
+    }
     sessionStorage.setItem("panier",JSON.stringify(this.panier))
   }
-  
+
   /**
    * remove 1 to the quantite of an achat
-   * @param ref the achat position in the panier
+   * @param nom the name of the Article in the panier
    */
-  removeQte(ref:number){
-    this.panier[ref].quantite -= 1;
+  removeQte(nom:string){
+    for (const achat of this.panier) {
+      if (achat.article.nom == nom) {
+        achat.quantite -=1
+      }
+    }
     sessionStorage.setItem("panier",JSON.stringify(this.panier))
   }
 
