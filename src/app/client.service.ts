@@ -32,8 +32,11 @@ export class ClientService {
   }}
 
   init(): void {
-    if (JSON.parse(sessionStorage.getItem("client"))!=null)
-      this.getLoggedIn.next('Mon Compte');
+    if (JSON.parse(sessionStorage.getItem("client"))!=null) {
+      let panier = JSON.parse(sessionStorage.getItem("panier"))
+      let size = panier ? panier.length :0
+      this.getLoggedIn.next(['Mon Compte', size]);
+    }
     else{
       sessionStorage.setItem("client",null);
       sessionStorage.setItem("panier",null);
