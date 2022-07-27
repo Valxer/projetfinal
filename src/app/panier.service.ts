@@ -30,13 +30,14 @@ export class PanierService {
     totalp += achat.article.prix * achat.quantite;
     if (JSON.parse(sessionStorage.getItem("panier"))!=null) {
       panier = JSON.parse(sessionStorage.getItem("panier"));
-      panier.forEach(ach => {
+      for (const ach of panier) {
         if (ach.article.ref == achat.article.ref) {
           ach.quantite += achat.quantite;
           ach.total += achat.total;
           achat = null;
+          break;
         }
-      });
+      }
     }
     if (achat!= null) {
       panier.push(achat);
