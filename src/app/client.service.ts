@@ -8,7 +8,6 @@ import { Client } from './client';
   providedIn: 'root'
 })
 export class ClientService {
-  bool:boolean = false;
 
   public getLoggedIn = new Subject();
 
