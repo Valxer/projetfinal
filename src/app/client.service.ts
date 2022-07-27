@@ -77,7 +77,6 @@ export class ClientService {
     this.http.get<Client>("http://localhost:8080/api/client/login/"+ cli.id +"/"+ cli.password ).subscribe(
     reponse=>{cli=reponse;
       sessionStorage.setItem("client", JSON.stringify(cli));
-      console.log(reponse)
       if (reponse) {
         this.router.navigate(['/confirmationconnexion']);
       }else{
