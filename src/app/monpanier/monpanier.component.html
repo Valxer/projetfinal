@@ -13,7 +13,7 @@
             <tbody>
                 <tr *ngFor="let achat of panier">
                     <td>{{achat.article.nom}}</td>
-                    <td>{{achat.quantite}}</td>
+                    <td class="amountline"><button class="amount minus">-</button>{{achat.quantite}}<button class="amount plus">+</button></td>
                     <td>{{achat.total}} €</td>
                 </tr>
                 <tr>
