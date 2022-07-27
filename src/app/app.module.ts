@@ -24,6 +24,8 @@ import { GestionarticleComponent } from './gestionarticle/gestionarticle.compone
 import { EditarticleComponent } from './editarticle/editarticle.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { IsLoggedGuard } from './is-logged-guard';
+import { UnloggedGuard } from './unlogged-guard';
+import { IsAdminGuard } from './is-admin-guard';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,11 @@ import { IsLoggedGuard } from './is-logged-guard';
     HttpClientModule,
     NgbModule
   ],
-  providers: [IsLoggedGuard],
+  providers: [
+    IsLoggedGuard,
+    UnloggedGuard,
+    IsAdminGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

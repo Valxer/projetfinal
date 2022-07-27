@@ -51,7 +51,6 @@ export class AdminService {
     this.http.get<Admin>("http://localhost:8080/api/admin/login/"+ admin.id +"/"+ admin.password ).subscribe(
     reponse=>{admin=reponse;
       sessionStorage.setItem("admin", JSON.stringify(admin));
-      console.log(reponse)
       if (reponse) {
         this.router.navigate(['/confirmationconnexion']);
       }else{
