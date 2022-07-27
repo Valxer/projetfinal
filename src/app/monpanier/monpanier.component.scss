@@ -3,3 +3,25 @@
     justify-content: center;
     align-items: center;
 }
+
+.amount {
+    border-radius: 50%;
+    border: 1px solid rgb(102, 102, 102);
+    background-color: transparent;
+    height: 22px;
+    width: 22px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &line {
+        display: flex;
+        align-items: center;
+    }
+    &.minus {
+        margin-right: 10px;
+    }
+    &.plus {
+        margin-left: 10px;
+    }
+}
