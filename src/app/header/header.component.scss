@@ -16,7 +16,7 @@ ul {
     font-weight: 600;
 }
 
-.nav-item {
+.nav-item, .navbar-brand {
     color :#626262;
     display: flex;
     justify-content: center;
@@ -51,10 +51,11 @@ ul {
         position: absolute;
         top: 0;
         right:-15px;
-        width:27px;
-        height:27px;
+        width:25px;
+        height:25px;
         border: 2px solid #626262;
         border-radius: 50%;
         font-size: 0.9rem;
+        text-align: center;
     }
 }

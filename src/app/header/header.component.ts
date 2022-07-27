@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   Logmessage:string
   size:number
   admin: any; //TDL
-  
+  public isMenuCollapsed = true;
   constructor(private router: Router, private loginsrv: ClientService) {
     
    }
