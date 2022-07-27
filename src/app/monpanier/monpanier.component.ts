@@ -4,6 +4,7 @@ import { Route, Router } from '@angular/router';
 import { Achat } from '../achat';
 import { Article } from '../article';
 import { Client } from '../client';
+import { ClientService } from '../client.service';
 import { Commande } from '../commande';
 import { CommandeArticle } from '../commande-article';
 import { CommandeService } from '../commande.service';
@@ -21,7 +22,7 @@ export class MonpanierComponent implements OnInit {
   footer: string
   panier: Array<Achat>
 
-  constructor(private router: Router, private cmdsrv:CommandeService) { }
+  constructor(private router: Router, private cmdsrv:CommandeService, private clientsrv:ClientService) { }
 
   ngOnInit(): void {
     if (JSON.parse(sessionStorage.getItem("client"))) {
@@ -73,11 +74,12 @@ export class MonpanierComponent implements OnInit {
    * Empty the panier and totalp and redirect to catalogue()
    */
    reset(){
-    this.panier=null;
-    this.footer="";
-    sessionStorage.setItem("panier", null);
-    sessionStorage.setItem("totalp", null);
-    this.catalogue();
+    this.panier=null
+    this.footer=""
+    sessionStorage.setItem("panier", null)
+    sessionStorage.setItem("totalp", null)
+    this.clientsrv.Islogged()
+    this.catalogue()
   }
 
 }

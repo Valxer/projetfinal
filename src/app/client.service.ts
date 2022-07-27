@@ -19,11 +19,15 @@ export class ClientService {
    * @param cli partial client with ID and password
    */
   Islogged(): Observable<boolean>{
+    let size = 0
     if (JSON.parse(sessionStorage.getItem("client"))!=null) {
-      this.getLoggedIn.next('Mon Compte');      
+      let panier = JSON.parse(sessionStorage.getItem("panier"))
+      if (panier)
+        size = panier.length
+      this.getLoggedIn.next(['Mon Compte', size]);      
       return of(true);
   } else {
-      this.getLoggedIn.next('Se Connecter');      
+      this.getLoggedIn.next(['Se Connecter', size]);      
       return of(false);
   }}
 
@@ -34,7 +38,7 @@ export class ClientService {
       sessionStorage.setItem("client",null);
       sessionStorage.setItem("panier",null);
       sessionStorage.setItem("totalp",null);
-      this.getLoggedIn.next('Se Connecter');
+      this.getLoggedIn.next(['Se Connecter', 0]);
     }
   }
 
@@ -45,7 +49,7 @@ export class ClientService {
     sessionStorage.setItem("client",null);
     sessionStorage.setItem("panier",null);
     sessionStorage.setItem("totalp",null);
-    this.getLoggedIn.next('Se Connecter');
+    this.getLoggedIn.next(['Se Connecter', 0]);
   }
 
   /**
