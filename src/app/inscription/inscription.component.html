@@ -1,7 +1,7 @@
 
 <div class="d-flex flex-column align-items-center">
     <div class="d-flex flex-column align-items-center">
-        <h3>Veuillez Remplir ces champs pour vous inscrire</h3>
+        <h3>Veuillez remplir ces champs pour vous inscrire</h3>
         <p class="mb-0"><label for="nom">Identifiant</label></p>
         <input name = "login"  type = "text" placeholder="Votre Identifiant" [(ngModel)]="newclient.id" required #login="ngModel">
         <div *ngIf="login.invalid && (login.dirty || login.touched)" >
@@ -18,8 +18,8 @@
             </span>
         </div>
         
-        <p class="mb-0"><label for="prenom">Prenom</label></p>
-        <input name = "prenom" type = "text" placeholder="Votre prenom" [(ngModel)]="newclient.prenom" required #prenom="ngModel"/>
+        <p class="mb-0"><label for="prenom">Prénom</label></p>
+        <input name = "prenom" type = "text" placeholder="Votre prénom" [(ngModel)]="newclient.prenom" required #prenom="ngModel"/>
         <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" >
             <span *ngIf="prenom.errors?.['required']" class="validation">
                 *Le prenom doit etre rempli.*
