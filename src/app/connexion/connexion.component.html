@@ -1,17 +1,17 @@
 
-	<div class="d-flex flex-column align-items-center">
-	 	<h3>Déjà client ? Connectez-vous:</h3>
-		
-        <p class="mb-0"><label for="identifiant">Identifiant</label></p>
-        <input name = "identifiant" type = "text" [(ngModel)]="cli.id" required/><br>
-    
-        <p class="mb-0"><label for="mdp">Mot de passe</label></p>
-        <input name = "mdp" type = "password" [(ngModel)]="cli.password" required/><br>
-    
-        <button (click)="connect()" class="btn btn-primary" style="margin:0 auto;"> Connexion </button>
-        <div>
-        <hr>
-        <h3>Première visite ? Inscrivez-vous:</h3>
-        </div>
-        <button class="btn btn-primary" (click)="inscription()">Inscription</button>
-	</div>
+<div class="d-flex flex-column align-items-center">
+        <h3>Déjà client ? Connectez-vous:</h3>
+        
+<p class="mb-0"><label for="identifiant">Identifiant</label></p>
+<input name = "identifiant" type = "text" [(ngModel)]="cli.id" required/><br>
+
+<p class="mb-0"><label for="mdp">Mot de passe</label></p>
+<input name = "mdp" type = "password" [(ngModel)]="cli.password" required/><br>
+
+<button (click)="connect()" class="btn btn-primary" style="margin:0 auto;"> Connexion </button>
+<div>
+<hr>
+<h3>Première visite ? Inscrivez-vous:</h3>
+</div>
+<button class="btn btn-primary" (click)="inscription()">Inscription</button>
+</div>
