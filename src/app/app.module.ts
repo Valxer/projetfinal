@@ -23,6 +23,7 @@ import { AdminconnexionComponent } from './adminconnexion/adminconnexion.compone
 import { GestionarticleComponent } from './gestionarticle/gestionarticle.component';
 import { EditarticleComponent } from './editarticle/editarticle.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { IsLoggedGuard } from './is-logged-guard';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpClientModule,
     NgbModule
   ],
-  providers: [],
+  providers: [IsLoggedGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
