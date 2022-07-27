@@ -86,7 +86,7 @@ export class MonpanierComponent implements OnInit {
 
   /**
    * add 1 to the quantite of an achat
-   * @param ref the achet position in the panier
+   * @param ref the achat position in the panier
    */
   addQte(ref:number){
     this.panier[ref].quantite += 1;
@@ -95,7 +95,7 @@ export class MonpanierComponent implements OnInit {
   
   /**
    * remove 1 to the quantite of an achat
-   * @param ref the achet position in the panier
+   * @param ref the achat position in the panier
    */
   removeQte(ref:number){
     this.panier[ref].quantite -= 1;
