@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Achat } from '../achat';
 import { Article } from '../article';
 import { ArticleService } from '../article.service';
+import { ClientService } from '../client.service';
 import { PanierService } from '../panier.service';
 
 @Component({
@@ -20,6 +21,7 @@ export class ArticleComponent implements OnInit {
     private route : ActivatedRoute,
     private articlesrv: ArticleService,
     private paniersrv: PanierService,
+    private clientsrv: ClientService,
     private router: Router
     ) {}
     
@@ -39,6 +41,7 @@ export class ArticleComponent implements OnInit {
     achat.quantite = this.quantite;
     achat.total = this.article.prix * this.quantite
     this.paniersrv.ajoutarticle(achat)
+    this.clientsrv.Islogged();
   }
 
   goToCatalogue():void {

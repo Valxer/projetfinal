@@ -9,7 +9,8 @@ import { ClientService } from '../client.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  Logmessage:any;
+  Logmessage:string
+  size:number
   admin: any; //TDL
   
   constructor(private router: Router, private loginsrv: ClientService) {
@@ -17,7 +18,10 @@ export class HeaderComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.loginsrv.getLoggedIn.subscribe(name=>this.Logmessage = name)
+    this.loginsrv.getLoggedIn.subscribe(response=>{
+      this.Logmessage = response[0]
+      this.size = response[1]
+    })
     this.loginsrv.init();
   }
 
