@@ -21,6 +21,7 @@ export class MonpanierComponent implements OnInit {
   header: string
   footer: string
   panier: Array<Achat>
+  client: Client
 
   constructor(private router: Router, private cmdsrv:CommandeService, private clientsrv:ClientService) { }
 
@@ -30,9 +31,10 @@ export class MonpanierComponent implements OnInit {
       this.header = "La commande de " +  client.nom + " " + client.prenom;
     }
     if (JSON.parse(sessionStorage.getItem("totalp")) != null) {
-      this.footer = "Total du panier : " + JSON.parse(sessionStorage.getItem("totalp")) +" €"
+      this.footer = "Total du panier : " + JSON.parse(sessionStorage.getItem("totalp")) +" €";
     }
     this.panier = JSON.parse(sessionStorage.getItem("panier"));
+    this.client = JSON.parse(sessionStorage.getItem("client"));
   }
 
   /**

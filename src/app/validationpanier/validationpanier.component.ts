@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../article';
 import { Client } from '../client';
+import { ClientService } from '../client.service';
 import { Commande } from '../commande';
 import { CommandeArticle } from '../commande-article';
 import { CommandearticleService } from '../commandearticle.service';
@@ -17,7 +18,7 @@ export class ValidationpanierComponent implements OnInit {
   numCom : number;
   client : Client;
 
-  constructor(private artcmdsrv: CommandearticleService) { }
+  constructor(private artcmdsrv: CommandearticleService, private clientsrv:ClientService) { }
 
   ngOnInit(): void {
     this.numCom = JSON.parse(sessionStorage.getItem("numCom")); //Get the values we need to display
@@ -44,6 +45,7 @@ export class ValidationpanierComponent implements OnInit {
       this.artcmdsrv.create(cmdart);
     }
     sessionStorage.setItem("panier",null);
+    this.clientsrv.Islogged();
   }
 
 }
