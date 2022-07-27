@@ -32,14 +32,13 @@ export class GestionarticleComponent implements OnInit {
   }
 
   update(ref:number){
-
+    this.route.navigate(['editarticle/'+ref])
   }
   remove(ref:number){
-    
+    this.artsrv.delete(ref)
   }
   add(){
     this.artsrv.create(this.newarticle)
-    this.route.navigate(['gestionarticle'])
   }
 
 }

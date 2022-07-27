@@ -1,1 +1,34 @@
-<p>editarticle works!</p>
+<div class="container">
+    <h2 class="text-center">Editer l'article</h2>
+    <div class="d-flex flex-column align-items-center">
+
+        <p class="mb-0">Référence :</p>
+		<input type="number" [(ngModel)]="article.ref" disabled />
+            
+        <p class="mb-0">Nom :</p>
+        <input type = "text" [(ngModel)]="article.nom" required #nom="ngModel">
+        <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" >
+            <div *ngIf="nom.errors?.['required']" class="validation">
+                *La ref doit etre remplie.*
+            </div>
+        </div>
+        
+        <p class="mb-0">Descritpion :</p>
+        <input type = "text" [(ngModel)]="article.description" >
+        
+        <p class="mb-0">Prix :</p>
+        <input type = "number" [(ngModel)]="article.prix" required #prix="ngModel">
+        <div *ngIf="prix.invalid && (prix.dirty || prix.touched)" >
+            <div *ngIf="prix.errors?.['required']" class="validation">
+                *Le prix doit etre rempli.*
+            </div>
+        </div>
+        
+        <p class="mb-0">URL de l'image :</p>
+        <input type = "text" [(ngModel)]="article.image">
+            
+        
+        <button class="btn btn-primary mt-4" (click)="update()"> Editer l'article </button>
+        
+        
+    </div>
