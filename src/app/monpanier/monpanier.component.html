@@ -8,6 +8,7 @@
                     <th>Articles</th>
                     <th>Quantité</th>
                     <th>Sous-total</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -18,10 +19,13 @@
                         {{achat.quantite}}
                         <button class="amount plus" (click)="addQte(achat.article.nom)">+</button>
                     </td>
-                    <td>{{achat.total}} €</td>
+                    <td>
+                        {{achat.total}} € 
+                    </td>
+                    <td><button class="btn btn-close" (click)="remove(achat)"></button></td>
                 </tr>
                 <tr>
-                    <td colspan="3" style="text-align: center;"><strong>{{footer}} {{totalp}} €</strong></td>
+                    <td colspan="4" style="text-align: center;"><strong>{{footer}} {{totalp}} €</strong></td>
                 </tr>
                     
             </tbody>
