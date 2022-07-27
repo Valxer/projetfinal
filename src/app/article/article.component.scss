@@ -6,7 +6,12 @@
 }
 
 .articledesc {
-    width:50%;
+    
+    @media screen and (min-width: 990px) {
+        min-width: 270px;
+        width: 50%;
+        height: 400px;
+    }
     @media screen and (max-width: 990px) {
         width: clamp(250px, 100% ,500px);
     }
@@ -28,7 +33,7 @@ img {
 
 .backbtn {
     display: block;
-    width: 350px;
+    width: 250px;
     margin: 25px auto;
     color: white;
 }
