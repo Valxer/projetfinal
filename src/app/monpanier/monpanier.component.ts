@@ -57,7 +57,12 @@ export class MonpanierComponent implements OnInit {
       let totalp = JSON.parse(sessionStorage.getItem("totalp"));
       this.cmdsrv.create(client,totalp).subscribe(
         response=>{sessionStorage.setItem("numCom",JSON.stringify(response.id));
-        this.router.navigate(['validationpanier'])
+        if (response) {
+          this.router.navigate(['validationpanier'])
+        }else{
+          this.router.navigate(['erreurcommande'])
+        }
+        
       });
       sessionStorage.setItem("totalfinal",JSON.stringify(totalp));
       sessionStorage.setItem("totalp", null);

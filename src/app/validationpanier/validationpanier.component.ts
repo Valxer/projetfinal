@@ -24,6 +24,8 @@ export class ValidationpanierComponent implements OnInit {
     this.client =JSON.parse(sessionStorage.getItem("client"));
     this.totalfinal =JSON.parse(sessionStorage.getItem("totalfinal")); 
     this.savepanier(); // Save and reset the panier here. So we are sure we are after the creation of the commande in the DB and we have numCom returned
+    sessionStorage.removeItem("numCom");
+    sessionStorage.removeItem("totalfinal")
   }
 
   /**
@@ -42,7 +44,6 @@ export class ValidationpanierComponent implements OnInit {
       this.artcmdsrv.create(cmdart);
     }
     sessionStorage.setItem("panier",null);
-
   }
 
 }

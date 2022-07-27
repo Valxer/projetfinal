@@ -18,6 +18,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { ArticleComponent } from './article/article.component';
 import { MonpanierComponent } from './monpanier/monpanier.component';
 import { ValidationpanierComponent } from './validationpanier/validationpanier.component';
+import { ErreurcommandeComponent } from './erreurcommande/erreurcommande.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ValidationpanierComponent } from './validationpanier/validationpanier.c
     InscriptionComponent,
     ArticleComponent,
     MonpanierComponent,
-    ValidationpanierComponent
+    ValidationpanierComponent,
+    ErreurcommandeComponent
   ],
   imports: [
     BrowserModule,

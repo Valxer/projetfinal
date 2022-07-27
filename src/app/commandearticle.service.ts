@@ -17,9 +17,7 @@ export class CommandearticleService {
    * Create a CommandeArticle in DB with a CommandeArticle
    * @param cmdart the commande.id, the article.ref and the quantite are mandatory
    */
-   create(cmdart: CommandeArticle):void {
-    console.log(cmdart);
-    
+   create(cmdart: CommandeArticle):void {    
     this.http.post<CommandeArticle>(this.url+"create",JSON.stringify(cmdart),
     {headers: new HttpHeaders({"Content-Type": "application/json"})})
     .subscribe(response => {console.log("crud service post OK");},      

@@ -22,16 +22,15 @@
                         <li><a ngbDropdownItem (click)="connexion()" >Connexion</a></li>
                         <li><a ngbDropdownItem (click)="inscription()" >Inscription</a></li>
                         <li><hr ngbDropdowndivider ></li>
-                        <ng-container *ngIf="admin==null">
+                        <!-- <ng-container *ngIf="admin==null">
                             <li><a ngbDropdownItem href='../admin/login'>Admin</a> </li>
                         </ng-container>
                         <ng-template #elseBlock>
                             <li><a ngbDropdownItem href='../admin/article'>Gestion articles</a> </li>
                             <li><a ngbDropdownItem href='../admin/deconnexion'>Deconnexion Admin</a> </li>
-                        </ng-template>
+                        </ng-template> -->
                     </ng-container>
                     <ng-template #elseBlock>
-                        <li><a ngbDropdownItem href='../panier/commande'>Commande</a> </li>
                         <li><a ngbDropdownItem (click)='deconnexion()'>Deconnexion</a> </li>
                     </ng-template>
                 </ul>
