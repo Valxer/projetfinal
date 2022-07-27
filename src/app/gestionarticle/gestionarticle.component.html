@@ -21,7 +21,27 @@
                     <td>{{article.image }}</td>
                     <td ><div class="d-flex justify-content-around align-items-center h-100">
                         <button class="btn btn-primary " (click)="update(article.ref)" > Update </button>
-                        <button class="btn btn-danger " (click)="remove(article.ref)"> Remove </button>
+                        <!-- Button trigger modal -->
+                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#RemoveModal" (click)="remove(article.ref)">
+                            Remove
+                        </button>                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="RemoveModal" tabindex="-1" aria-labelledby="RemoveModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="RemoveModalLabel"> Suppression de l'article en base de données</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        L'article a bien été supprimé
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" (click)='loadarticles()' data-bs-dismiss="modal">Continuer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div></td>
                 </tr>
             </tbody>
@@ -55,7 +75,7 @@
             <p class="mb-0">URL de l'image :</p>
             <input type = "text" [(ngModel)]="newarticle.image">
                 
-                <!-- Button trigger modal -->
+            <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#validationModal" (click)="add()">
                 Ajouter un Article
             </button>

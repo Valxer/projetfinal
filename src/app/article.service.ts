@@ -50,9 +50,18 @@ export class ArticleService {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })
-    }).
-      subscribe(response => {console.log("crud service post OK");      
-    },err => {console.log("crud service post KO")});  
+    }).subscribe(response => {
+      this.router.navigate(['gestionarticle'])  
+    });  
+  }
+
+  /**
+   * Delete an Article in the DB
+   * @param ref ref of the article to delete
+   */
+   delete(ref:number):void{
+    this.http.delete(this.url+"delete/"+ref).subscribe(response => {
+    });  
   }
 
   /**
