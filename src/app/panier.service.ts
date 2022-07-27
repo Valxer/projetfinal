@@ -44,6 +44,6 @@ export class PanierService {
     }
     sessionStorage.setItem("totalp",JSON.stringify(totalp));
     sessionStorage.setItem("panier",JSON.stringify(panier));
-    alert(message);
+    // alert(message);
   }
 }
