@@ -7,7 +7,9 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
 import { ConfirmationconnexionComponent } from './confirmationconnexion/confirmationconnexion.component';
 import { ConfirmationinscriptionComponent } from './confirmationinscription/confirmationinscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { EditarticleComponent } from './editarticle/editarticle.component';
 import { ErreurconnexionComponent } from './erreurconnexion/erreurconnexion.component';
+import { GestionarticleComponent } from './gestionarticle/gestionarticle.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { MonpanierComponent } from './monpanier/monpanier.component';
 import { ValidationpanierComponent } from './validationpanier/validationpanier.component';
@@ -25,6 +27,8 @@ const routes: Routes = [
   {path: 'monpanier', component: MonpanierComponent},
   {path: 'validationpanier', component: ValidationpanierComponent},
   {path: 'article/:id', component: ArticleComponent},
+  {path: 'gestionarticle', component: GestionarticleComponent},
+  {path: 'editarticle/:id', component: EditarticleComponent}
 ];
 
 @NgModule({

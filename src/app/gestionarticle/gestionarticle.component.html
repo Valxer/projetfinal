@@ -1,0 +1,82 @@
+<ng-container *ngIf="admin != null">
+    <div class="container">
+        <h2 class="text-center">Menu</h2>
+        <table class="table table-striped table-primary">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">ref</th>
+                    <th scope="col">nom</th>
+                    <th scope="col">description</th>
+                    <th scope="col">prix</th>
+                    <th scope="col">image</th>
+                    <th scope="col" class="col-2"></th>
+                  </tr>
+                </thead>
+            <tbody>
+                <tr *ngFor="let article of articles">
+                    <th scope="row">{{article.ref }}</th>
+                    <td>{{article.nom }}</td>
+                    <td>{{article.description }}</td>
+                    <td>{{article.prix }}</td>
+                    <td>{{article.image }}</td>
+                    <td ><div class="d-flex justify-content-around align-items-center h-100">
+                        <button class="btn btn-primary " (click)="update(article.ref)" > Update </button>
+                        <button class="btn btn-danger " (click)="remove(article.ref)"> Remove </button>
+                    </div></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        
+        <hr>
+        <div class="container">
+        <h2 class="text-center">Ajouter un article</h2>
+        <div class="d-flex flex-column align-items-center">
+                
+            <p class="mb-0">Nom :</p>
+            <input type = "text" [(ngModel)]="newarticle.nom" required #nom="ngModel">
+            <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" >
+                <div *ngIf="nom.errors?.['required']" class="validation">
+                    *La ref doit etre remplie.*
+                </div>
+            </div>
+            
+            <p class="mb-0">Descritpion :</p>
+            <input type = "text" [(ngModel)]="newarticle.description" >
+            
+            <p class="mb-0">Prix :</p>
+            <input type = "number" [(ngModel)]="newarticle.prix" required #prix="ngModel">
+            <div *ngIf="prix.invalid && (prix.dirty || prix.touched)" >
+                <div *ngIf="prix.errors?.['required']" class="validation">
+                    *Le prix doit etre rempli.*
+                </div>
+            </div>
+            
+            <p class="mb-0">URL de l'image :</p>
+            <input type = "text" [(ngModel)]="newarticle.image">
+                
+                <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#validationModal" (click)="add()">
+                Ajouter un Article
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="validationModal" tabindex="-1" aria-labelledby="validationModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="validationModalLabel">Ajout de l'article en base de données</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        L'article {{newarticle.nom}} a bien été ajouté
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)='loadarticles()' data-bs-dismiss="modal">Valider</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

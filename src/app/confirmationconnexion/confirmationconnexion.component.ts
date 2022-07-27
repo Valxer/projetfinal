@@ -10,11 +10,15 @@ import { ClientService } from '../client.service';
 })
 export class ConfirmationconnexionComponent implements OnInit {
   client: Client;
+
   constructor(private srv: ClientService,private adminsrv: AdminService) { }
 
   ngOnInit(): void {
     this.client=JSON.parse(sessionStorage.getItem("client"));
-    this.client=JSON.parse(sessionStorage.getItem("admin"));
+    if (JSON.parse(sessionStorage.getItem("admin")) != null) {
+      this.client = new Client();
+      this.client.prenom= 'admin'
+    }
     this.srv.Islogged();
     this.adminsrv.Islogged();
   }

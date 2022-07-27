@@ -27,6 +27,33 @@ export class ArticleService {
     return this.http.get<Article>(this.url + "findbyid/" + id)
       .pipe(catchError(this.handleError<Article>('findbyid')))
   } 
+  /**
+   * Create a new Article in the DB
+   * @param article Nom and image are required
+   */
+   create(article:Article):void{
+    this.http.post(this.url+"create",JSON.stringify(article),{
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    }).
+      subscribe(response => {console.log("crud service post OK");      
+    },err => {console.log("crud service post KO")});  
+  }
+
+  /**
+   * Update an Article in the DB
+   * @param article Nom and image are required
+   */
+   update(article:Article):void{
+    this.http.put(this.url+"update",JSON.stringify(article),{
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    }).
+      subscribe(response => {console.log("crud service post OK");      
+    },err => {console.log("crud service post KO")});  
+  }
 
   /**
    * Handle Http operation that failed.

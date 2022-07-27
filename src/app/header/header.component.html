@@ -36,7 +36,7 @@
                         </ng-template>    
                         <ng-container *ngIf="admin=='connected'">
                             <li><hr ngbDropdowndivider ></li>
-                            <li><a ngbDropdownItem href='../admin/article'>Gestion articles</a> </li>
+                            <li><a ngbDropdownItem [routerLink]='["gestionarticle"]'>Gestion articles</a> </li>
                             <li><a ngbDropdownItem (click)='deconnexionadmin();isMenuCollapsed = true'>Deconnexion Admin</a> </li>
                         </ng-container>                        
                     </ul>

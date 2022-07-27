@@ -20,6 +20,8 @@ import { MonpanierComponent } from './monpanier/monpanier.component';
 import { ValidationpanierComponent } from './validationpanier/validationpanier.component';
 import { ErreurcommandeComponent } from './erreurcommande/erreurcommande.component';
 import { AdminconnexionComponent } from './adminconnexion/adminconnexion.component';
+import { GestionarticleComponent } from './gestionarticle/gestionarticle.component';
+import { EditarticleComponent } from './editarticle/editarticle.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { AdminconnexionComponent } from './adminconnexion/adminconnexion.compone
     MonpanierComponent,
     ValidationpanierComponent,
     ErreurcommandeComponent,
-    AdminconnexionComponent
+    AdminconnexionComponent,
+    GestionarticleComponent,
+    EditarticleComponent
   ],
   imports: [
     BrowserModule,
