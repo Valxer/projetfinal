@@ -13,11 +13,15 @@
             <tbody>
                 <tr *ngFor="let achat of panier">
                     <td>{{achat.article.nom}}</td>
-                    <td class="amountline"><button class="amount minus">-</button>{{achat.quantite}}<button class="amount plus">+</button></td>
+                    <td class="amountline">
+                        <button class="amount minus" (click)="removeQte(achat.article.nom)">-</button>
+                        {{achat.quantite}}
+                        <button class="amount plus" (click)="addQte(achat.article.nom)">+</button>
+                    </td>
                     <td>{{achat.total}} €</td>
                 </tr>
                 <tr>
-                    <td colspan="3" style="text-align: center;"><strong>{{footer}}</strong></td>
+                    <td colspan="3" style="text-align: center;"><strong>{{footer}} {{totalp}} €</strong></td>
                 </tr>
                     
             </tbody>
@@ -42,7 +46,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            La livraison se fera à l'adresse suivante : {{client.adresse}}.
+                        La livraison se fera à l'adresse suivante : {{client.adresse}}.
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-info text-white" data-bs-dismiss="modal">Retour à la commande</button>

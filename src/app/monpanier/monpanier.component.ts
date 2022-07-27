@@ -22,16 +22,18 @@ export class MonpanierComponent implements OnInit {
   footer: string
   panier: Array<Achat>
   client: Client
+  totalp: number
 
   constructor(private router: Router, private cmdsrv:CommandeService, private clientsrv:ClientService) { }
 
   ngOnInit(): void {
+    this.totalp = JSON.parse(sessionStorage.getItem("totalp"))
     if (JSON.parse(sessionStorage.getItem("client"))) {
       let client = JSON.parse(sessionStorage.getItem("client"));
       this.header = "La commande de " +  client.nom + " " + client.prenom;
     }
     if (JSON.parse(sessionStorage.getItem("totalp")) != null) {
-      this.footer = "Total du panier : " + JSON.parse(sessionStorage.getItem("totalp")) +" €";
+      this.footer = "Total du panier : ";
     }
     this.panier = JSON.parse(sessionStorage.getItem("panier"));
     this.client = JSON.parse(sessionStorage.getItem("client"));
@@ -89,12 +91,17 @@ export class MonpanierComponent implements OnInit {
    * @param nom the name of the Article in the panier
    */
   addQte(nom:string){
+    let price:number = 0
     for (const achat of this.panier) {
       if (achat.article.nom == nom) {
         achat.quantite +=1
+        price = achat.article.prix
+        achat.total += price
+        this.totalp += price
       }
     }
     sessionStorage.setItem("panier",JSON.stringify(this.panier))
+    sessionStorage.setItem("totalp", JSON.stringify(this.totalp))
   }
 
   /**
@@ -102,12 +109,17 @@ export class MonpanierComponent implements OnInit {
    * @param nom the name of the Article in the panier
    */
   removeQte(nom:string){
+    let price:number = 0
     for (const achat of this.panier) {
-      if (achat.article.nom == nom) {
+      if (achat.article.nom == nom && achat.quantite > 1) {
         achat.quantite -=1
+        price = achat.article.prix
+        achat.total -= price
+        this.totalp -= price
       }
     }
     sessionStorage.setItem("panier",JSON.stringify(this.panier))
+    sessionStorage.setItem("totalp", JSON.stringify(this.totalp))
   }
 
 }
