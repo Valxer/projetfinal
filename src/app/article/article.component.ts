@@ -36,12 +36,16 @@ export class ArticleComponent implements OnInit {
   }
 
   addToCart():void {
-    let achat = new Achat();
-    achat.article = this.article
-    achat.quantite = this.quantite;
-    achat.total = this.article.prix * this.quantite
-    this.paniersrv.ajoutarticle(achat)
-    this.clientsrv.Islogged();
+    if (JSON.parse(sessionStorage.getItem("client"))) {
+      let achat = new Achat();
+      achat.article = this.article
+      achat.quantite = this.quantite;
+      achat.total = this.article.prix * this.quantite
+      this.paniersrv.ajoutarticle(achat)
+      this.clientsrv.Islogged();
+    }
+    else
+      this.router.navigate(['connexion'])
   }
 
   goToCatalogue():void {

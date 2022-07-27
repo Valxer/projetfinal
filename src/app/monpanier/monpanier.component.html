@@ -2,7 +2,7 @@
 	<h1 class="row justify-content-center mb-4">Votre panier</h1>
 	<h3 class="my-4">{{header}}</h3>
     <div id="panier" class="col">
-        <table class="my-4 table table-striped">
+        <table *ngIf="panier" class="my-4 table table-striped">
             <thead class="thead-dark">
                 <tr>
                     <th>Articles</th>
