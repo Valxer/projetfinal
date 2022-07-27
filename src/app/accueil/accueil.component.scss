@@ -5,3 +5,15 @@ img {
 button {
     background-color: #90c543!important;
 }
+
+.carousseldesc {
+    z-index: 2;
+    font-family: 'Amatic SC', cursive ;
+    font-weight: 500;
+    top:15%;
+    left:5%;
+    font-size: 4rem;
+    position: absolute;
+    color: black;
+    display: block;
+}
