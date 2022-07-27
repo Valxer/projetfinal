@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminService } from '../admin.service';
 import { Client } from '../client';
 import { ClientService } from '../client.service';
 
@@ -10,10 +11,12 @@ import { ClientService } from '../client.service';
 })
 export class HeaderComponent implements OnInit {
   Logmessage:string
+  admin:string
   size:number
-  admin: any; //TDL
   public isMenuCollapsed = true;
-  constructor(private router: Router, private loginsrv: ClientService) {
+  constructor(private router: Router, 
+              private loginsrv: ClientService,
+              private adminsrv: AdminService) {
     
    }
 
@@ -23,6 +26,10 @@ export class HeaderComponent implements OnInit {
       this.size = response[1]
     })
     this.loginsrv.init();
+    this.adminsrv.getadminLoggedIn.subscribe(response => {
+      this.admin = response[0];
+    })
+    this.adminsrv.init()
   }
 
   /**
@@ -61,6 +68,10 @@ export class HeaderComponent implements OnInit {
    */
   deconnexion(){
     this.loginsrv.logout();
+    this.accueil();
+  }
+  deconnexionadmin(){
+    this.adminsrv.logout();
     this.accueil();
   }
 

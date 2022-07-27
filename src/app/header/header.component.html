@@ -15,7 +15,7 @@
           </button>
       
           <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse justify-content-center">
-            <ul class="navbar-nav w-100 justify-content-between align-items-center"> <!--nav justify-content-around align-items-center text-center h-100-->
+            <ul class="navbar-nav w-100 justify-content-around align-items-center"> <!--nav justify-content-around align-items-center text-center h-100-->
                 <li class="nav-item"> <a (click)="catalogue();isMenuCollapsed = true"> Catalogue </a> </li>  
                 <ng-container *ngIf="Logmessage =='Mon Compte'" class="d-flex">
                     <li class="nav-item">
@@ -30,18 +30,15 @@
                         <ng-container *ngIf="Logmessage !='Mon Compte'; else elseBlock" class="d-flex">
                             <li><a ngbDropdownItem (click)="connexion();isMenuCollapsed = true" >Connexion</a></li>
                             <li><a ngbDropdownItem (click)="inscription();isMenuCollapsed = true" >Inscription</a></li>
-                            <li><hr ngbDropdowndivider ></li>
-                            <!-- <ng-container *ngIf="admin==null">
-                                <li><a ngbDropdownItem href='../admin/login'>Admin</a> </li>
-                            </ng-container>
-                            <ng-template #elseBlock>
-                                <li><a ngbDropdownItem href='../admin/article'>Gestion articles</a> </li>
-                                <li><a ngbDropdownItem href='../admin/deconnexion'>Deconnexion Admin</a> </li>
-                            </ng-template> -->
                         </ng-container>
                         <ng-template #elseBlock>
                             <li><a ngbDropdownItem (click)='deconnexion();isMenuCollapsed = true'>Deconnexion</a> </li>
-                        </ng-template>
+                        </ng-template>    
+                        <ng-container *ngIf="admin=='connected'">
+                            <li><hr ngbDropdowndivider ></li>
+                            <li><a ngbDropdownItem href='../admin/article'>Gestion articles</a> </li>
+                            <li><a ngbDropdownItem (click)='deconnexionadmin();isMenuCollapsed = true'>Deconnexion Admin</a> </li>
+                        </ng-container>                        
                     </ul>
                 </div>
             </ul>

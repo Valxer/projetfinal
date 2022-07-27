@@ -19,6 +19,7 @@ import { ArticleComponent } from './article/article.component';
 import { MonpanierComponent } from './monpanier/monpanier.component';
 import { ValidationpanierComponent } from './validationpanier/validationpanier.component';
 import { ErreurcommandeComponent } from './erreurcommande/erreurcommande.component';
+import { AdminconnexionComponent } from './adminconnexion/adminconnexion.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ErreurcommandeComponent } from './erreurcommande/erreurcommande.compone
     ArticleComponent,
     MonpanierComponent,
     ValidationpanierComponent,
-    ErreurcommandeComponent
+    ErreurcommandeComponent,
+    AdminconnexionComponent
   ],
   imports: [
     BrowserModule,

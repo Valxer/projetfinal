@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
+import { AdminconnexionComponent } from './adminconnexion/adminconnexion.component';
 import { ArticleComponent } from './article/article.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { ConfirmationconnexionComponent } from './confirmationconnexion/confirmationconnexion.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'accueil', component: AccueilComponent},
   {path: 'catalogue', component: CatalogueComponent},
   {path: 'connexion', component: ConnexionComponent},
+  {path: 'admin', component: AdminconnexionComponent},
   {path: 'inscription', component: InscriptionComponent},
   {path: 'confirmationconnexion', component: ConfirmationconnexionComponent},
   {path: 'confirmationinscription', component: ConfirmationinscriptionComponent},
