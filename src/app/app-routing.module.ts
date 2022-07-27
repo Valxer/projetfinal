@@ -12,6 +12,7 @@ import { ErreurconnexionComponent } from './erreurconnexion/erreurconnexion.comp
 import { GestionarticleComponent } from './gestionarticle/gestionarticle.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { MonpanierComponent } from './monpanier/monpanier.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { ValidationpanierComponent } from './validationpanier/validationpanier.component';
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'validationpanier', component: ValidationpanierComponent},
   {path: 'article/:id', component: ArticleComponent},
   {path: 'gestionarticle', component: GestionarticleComponent},
-  {path: 'editarticle/:id', component: EditarticleComponent}
+  {path: 'editarticle/:id', component: EditarticleComponent},
+  {path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

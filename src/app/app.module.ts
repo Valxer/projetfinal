@@ -22,6 +22,7 @@ import { ErreurcommandeComponent } from './erreurcommande/erreurcommande.compone
 import { AdminconnexionComponent } from './adminconnexion/adminconnexion.component';
 import { GestionarticleComponent } from './gestionarticle/gestionarticle.component';
 import { EditarticleComponent } from './editarticle/editarticle.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { EditarticleComponent } from './editarticle/editarticle.component';
     ErreurcommandeComponent,
     AdminconnexionComponent,
     GestionarticleComponent,
-    EditarticleComponent
+    EditarticleComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
