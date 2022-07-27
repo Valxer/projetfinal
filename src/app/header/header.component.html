@@ -6,37 +6,47 @@
             <h1>de Gaïa</h1>
         </div>
     </div>
-    <nav class="navbar-dark bg-secondary " style="height:60px;">
-          <ul class="nav justify-content-around align-items-center text-center h-100">
-            <li class="nav-item"> <a (click)="accueil()"> Accueil </a></li>
-            <li class="nav-item"> <a (click)="catalogue()"> Catalogue </a> </li>   
-            <ng-container *ngIf="Logmessage =='Mon Compte'" class="d-flex">
-                <li class="nav-item">
-                    <a (click)="monpanier()" id="cart">Mon Panier <p *ngIf="size != 0">{{size}}</p></a>
-                </li>  
-            </ng-container>
-            <div ngbDropdown class="dropdown">
-                <button ngbDropdownToggle class="btn btn-primary" id="dropdownMenuButton1" aria-expanded="false">
-                    {{Logmessage}}
-                </button>
-                <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
-                    <ng-container *ngIf="Logmessage !='Mon Compte'; else elseBlock" class="d-flex">
-                        <li><a ngbDropdownItem (click)="connexion()" >Connexion</a></li>
-                        <li><a ngbDropdownItem (click)="inscription()" >Inscription</a></li>
-                        <li><hr ngbDropdowndivider ></li>
-                        <!-- <ng-container *ngIf="admin==null">
-                            <li><a ngbDropdownItem href='../admin/login'>Admin</a> </li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <div class="container-fluid">
+          <a class="navbar-brand w-25" (click)="accueil()"> Accueil </a>
+      
+          <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+            &#9776;
+          </button>
+      
+          <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse justify-content-center">
+            <ul class="navbar-nav w-100 justify-content-between align-items-center"> <!--nav justify-content-around align-items-center text-center h-100-->
+                <li class="nav-item"> <a (click)="catalogue();isMenuCollapsed = true"> Catalogue </a> </li>  
+                <ng-container *ngIf="Logmessage =='Mon Compte'" class="d-flex">
+                    <li class="nav-item">
+                        <a (click)="monpanier();isMenuCollapsed = true" id="cart">Mon Panier <p *ngIf="size != 0">{{size}}</p></a>
+                    </li>  
+                </ng-container>
+                <div ngbDropdown class="dropdown">
+                    <button ngbDropdownToggle class="btn btn-primary" id="dropdownMenuButton1" aria-expanded="false">
+                        {{Logmessage}}
+                    </button>
+                    <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+                        <ng-container *ngIf="Logmessage !='Mon Compte'; else elseBlock" class="d-flex">
+                            <li><a ngbDropdownItem (click)="connexion();isMenuCollapsed = true" >Connexion</a></li>
+                            <li><a ngbDropdownItem (click)="inscription();isMenuCollapsed = true" >Inscription</a></li>
+                            <li><hr ngbDropdowndivider ></li>
+                            <!-- <ng-container *ngIf="admin==null">
+                                <li><a ngbDropdownItem href='../admin/login'>Admin</a> </li>
+                            </ng-container>
+                            <ng-template #elseBlock>
+                                <li><a ngbDropdownItem href='../admin/article'>Gestion articles</a> </li>
+                                <li><a ngbDropdownItem href='../admin/deconnexion'>Deconnexion Admin</a> </li>
+                            </ng-template> -->
                         </ng-container>
                         <ng-template #elseBlock>
-                            <li><a ngbDropdownItem href='../admin/article'>Gestion articles</a> </li>
-                            <li><a ngbDropdownItem href='../admin/deconnexion'>Deconnexion Admin</a> </li>
-                        </ng-template> -->
-                    </ng-container>
-                    <ng-template #elseBlock>
-                        <li><a ngbDropdownItem (click)='deconnexion()'>Deconnexion</a> </li>
-                    </ng-template>
-                </ul>
-            </div>
-          </ul>
-    </nav>
+                            <li><a ngbDropdownItem (click)='deconnexion();isMenuCollapsed = true'>Deconnexion</a> </li>
+                        </ng-template>
+                    </ul>
+                </div>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
 </header>

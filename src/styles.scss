@@ -12,8 +12,9 @@ $theme-colors: (
   "danger": #ff4136,
   "warning": #ffc107,
   "info": #0dcaf0,
-  "dark": #212529,
-  "light": #f8f9fa
+  "light": #f8f9fa,
+  "dark": #212529
+  
 );
 @import "../node_modules/bootstrap/scss/bootstrap";
 // Then add additional custom code here
