@@ -125,5 +125,14 @@ export class MonpanierComponent implements OnInit {
   remove(achat:Achat){    
     const index = this.panier.indexOf(achat)
     this.panier.splice(index,1)
+    this.totalp -= achat.total
+    if(this.panier.length > 0)
+      sessionStorage.setItem("panier",JSON.stringify(this.panier))
+    else{
+      sessionStorage.setItem("panier",null)
+      this.panier = null
+    }
+    sessionStorage.setItem("totalp", JSON.stringify(this.totalp))
+    this.clientsrv.Islogged()
   }
 }
