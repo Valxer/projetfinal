@@ -1,4 +1,4 @@
-<section class=" d-flex justify-content-center flex-wrap">
+<section class=" d-flex flex-column justify-content-center align-items-center">
     <div class="articlecard align-items-center text-center w-75 d-flex justify-content-around" >
         <img
           class="my-4 mx-4 rounded-4"
@@ -7,7 +7,7 @@
           alt="{{article.nom}}"
           width="500"
           height="500" />
-        <div class="py-4 w-50 h-100 d-flex flex-column justify-content-between align-items-center">
+        <div class="py-4 h-100 d-flex flex-column justify-content-between align-items-center articledesc">
             <h3>{{article.nom}}</h3>
             <p class="desc" >{{article.description}}</p>
             <div class="d-flex flex-column align-items-center w-100">
@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-    <div class="w-50 d-flex justify-content-center">
-        <a (click)="goToCatalogue()" class="btn btn-secondary backbtn">Revenir au catalogue</a>
+    <div class="d-flex justify-content-center">
+        <button (click)="goToCatalogue()" class="btn btn-info backbtn">Revenir au catalogue</button>
     </div>
 </section>

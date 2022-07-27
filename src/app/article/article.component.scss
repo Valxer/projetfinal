@@ -1,6 +1,24 @@
 .articlecard {
+    margin: 30px auto;
+    @media screen and (max-width: 990px) {
+        flex-direction: column;
+    }
+}
+
+.articledesc {
+    width:50%;
+    @media screen and (max-width: 990px) {
+        width: clamp(250px, 100% ,500px);
+    }
+}
+
+img {
+    width: 500px;
     height: 500px;
-    margin: 50px auto;
+    @media screen and (max-width: 990px) {
+        width: 350px;
+        height: 350px;
+    }
 }
 
 #quantite {
@@ -9,11 +27,8 @@
 }
 
 .backbtn {
+    display: block;
     width: 350px;
     margin: 25px auto;
-    background-color: #5c636a;
     color: white;
-    &:hover {
-        background-color: #6c757d;
-    }
 }
