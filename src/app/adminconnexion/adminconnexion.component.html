@@ -2,13 +2,17 @@
 <div class="d-flex flex-column align-items-center">
     <h3>Admin ? Connectez-vous:</h3>
     
-<p class="mb-0"><label for="identifiant">Identifiant</label></p>
-<input name = "identifiant" type = "text" [(ngModel)]="admin.id" required/><br>
+    <form [formGroup]="profileForm" (ngSubmit)="connect()" class="d-flex flex-column align-items-center">
 
-<p class="mb-0"><label for="mdp">Mot de passe</label></p>
-<input name = "mdp" type = "password" [(ngModel)]="admin.password" required/><br>
-
-<button (click)="connect()" class="btn btn-primary" style="margin:0 auto;"> Connexion </button>
+        <label for="first-name">Identifiant: </label>
+        <input id="first-name" type="text" formControlName="id">
+      
+        <label for="last-name">Mot de Passe: </label>
+        <input id="last-name" type="password" formControlName="mdp">
+      
+        <p *ngIf="!profileForm.valid">Pour valider, veuiller remplir le formulaire</p>
+        <button class="my-4 btn btn-primary" type="submit" [disabled]="!profileForm.valid">Se connecter</button>
+    </form>
 <div>
 
 
