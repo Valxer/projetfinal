@@ -52,7 +52,7 @@ export class AdminService {
     reponse=>{admin=reponse;
       sessionStorage.setItem("admin", JSON.stringify(admin));
       if (reponse) {
-        this.router.navigate(['/confirmationconnexion']);
+        this.router.navigate(['/gestionarticle']);
       }else{
         this.router.navigate(['/erreurconnexion']);
       } 

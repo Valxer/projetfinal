@@ -22,7 +22,8 @@ export class GestionarticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.admin= JSON.parse(sessionStorage.getItem("admin"));
-    this.loadarticles()
+    this.loadarticles();
+    this.adminsrv.Islogged();
   }
   
   loadarticles(){
