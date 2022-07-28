@@ -13,17 +13,12 @@ export class InscriptionComponent implements OnInit {
 
   newclient= new Client();
   profileForm = new FormGroup({
-    identifiant: new FormControl('', Validators.required),
-    password: new FormControl('',Validators.required),
+    id: new FormControl('', Validators.required),
+    mdp: new FormControl('',Validators.required),
     nom: new FormControl('',Validators.required),
     prenom: new FormControl('',Validators.required),
     adresse: new FormControl('',Validators.required),
   });
-  get identifiant(){return this.profileForm.get('identifiant')}
-  get password(){return this.profileForm.get('password')}
-  get nom(){return this.profileForm.get('nom')}
-  get prenom(){return this.profileForm.get('prenom')}
-  get adresse(){return this.profileForm.get('adresse')}
 
   constructor(private router: Router,private srv: ClientService) { }
 
@@ -34,8 +29,12 @@ export class InscriptionComponent implements OnInit {
    * Call ClientService.create to create Create a new Client.
    */
   create(){
+    this.newclient.id = this.profileForm.value.id
+    this.newclient.nom = this.profileForm.value.nom
+    this.newclient.prenom = this.profileForm.value.prenom
+    this.newclient.adresse = this.profileForm.value.adresse
+    this.newclient.password = this.profileForm.value.mdp
     this.srv.create(this.newclient);
-    
   }
 
 }
