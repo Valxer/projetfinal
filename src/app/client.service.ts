@@ -66,7 +66,10 @@ export class ClientService {
     }).
       subscribe(response => {console.log("crud service post OK"); 
       this.router.navigate(['confirmationinscription'])     
-    },err => {console.log("crud service post KO")});  
+    },err => {
+      if (err.status == 400)
+        alert("identifiant déjà utilisé")
+    });  
   }
 
   /**
