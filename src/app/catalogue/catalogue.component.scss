@@ -7,3 +7,17 @@
     width: 350px;
     margin: 30px 25px;
 }
+
+.searchinput {
+    border: 1px solid #caccc8;
+    border-right: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    &:focus-visible, &:hover, &:focus{
+        border: 1px solid rgb(88, 88, 88);
+        border-right: none;
+    }
+}
+.searchbtn {
+    transform: translateX(-7px);
+}

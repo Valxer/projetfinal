@@ -1,4 +1,8 @@
 <h2 class="text-center my-4">Catalogue</h2>
+<div class="my-3 searchbar d-flex justify-content-center">
+    <input class="searchinput" type="search" id="search" [(ngModel)]="query" (keydown.enter)="searchbyname()" placeholder="Recherche...">
+    <button (click)="searchbyname()" class="searchbtn btn btn-primary"><span class="iconify" data-icon="mdi:magnify"></span></button>
+</div>
 <section class="menu-container d-flex flex-wrap justify-content-center">
     <div *ngFor="let article of articles">
         <div class="bg-secondary bg-opacity-25 articlecard card align-items-center text-center" (click)="goTo(article.ref)" >
@@ -7,4 +11,5 @@
             <h3 class="mb-4">{{article.prix}} €</h3>				
         </div>
     </div>
+    <h6 *ngIf="!articles.length">Aucun article correspondant à la recherche</h6>
 </section>

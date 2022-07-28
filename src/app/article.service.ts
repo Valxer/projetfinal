@@ -20,6 +20,11 @@ export class ArticleService {
       .pipe(catchError(this.handleError<Article[]>('findall')))
   }
 
+  findbyname(query:string): Observable<Article[]> {
+    return this.http.get<Article[]>(this.url + "findbyname/" + query)
+      .pipe(catchError(this.handleError<Article[]>('findbyname')))
+  }
+
   /** Tries to fetch the article having the given id as his primary key
    * @param id - primary key of the article
    */
