@@ -54,7 +54,7 @@ export class AdminService {
       if (reponse) {
         this.router.navigate(['/gestionarticle']);
       }else{
-        this.router.navigate(['/erreurconnexion']);
+        alert('Login ou mot de passe admin incorrect');
       } 
     },
     err=>{console.log("***************KO");
