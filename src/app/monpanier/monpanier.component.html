@@ -5,6 +5,7 @@
         <table *ngIf="panier" class="my-4 table table-striped">
             <thead class="thead-dark">
                 <tr>
+                    <th></th>
                     <th>Articles</th>
                     <th>Quantité</th>
                     <th>Sous-total</th>
@@ -13,19 +14,22 @@
             </thead>
             <tbody>
                 <tr *ngFor="let achat of panier">
+                    <td class="firstcell"><img src="./assets/images/{{achat.article.image}}" alt="{{achat.article.nom}}" width="50" height="50"></td>
                     <td>{{achat.article.nom}}</td>
-                    <td class="amountline">
-                        <button class="amount minus" (click)="removeQte(achat.article.nom)">-</button>
-                        {{achat.quantite}}
-                        <button class="amount plus" (click)="addQte(achat.article.nom)">+</button>
+                    <td>
+                        <div class="amountline">
+                            <button class="amount minus" (click)="removeQte(achat.article.nom)">-</button>
+                            {{achat.quantite}}
+                            <button class="amount plus" (click)="addQte(achat.article.nom)">+</button>
+                        </div>
                     </td>
                     <td>
                         {{achat.total}} € 
                     </td>
-                    <td><button class="btn btn-close" (click)="remove(achat)"></button></td>
+                    <td class="lastcell"><button class="btn btn-close" (click)="remove(achat)"></button></td>
                 </tr>
                 <tr>
-                    <td colspan="4" style="text-align: center;"><strong>{{footer}} {{totalp}} €</strong></td>
+                    <td colspan="5" style="text-align: center;"><strong>{{footer}} {{totalp}} €</strong></td>
                 </tr>
                     
             </tbody>

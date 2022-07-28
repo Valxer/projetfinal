@@ -4,6 +4,18 @@
     align-items: center;
 }
 
+td {
+    vertical-align: middle;
+}
+
+.firstcell {
+    width: 70px;
+}
+
+.lastcell {
+    width: 35px;
+}
+
 .amount {
     border-radius: 50%;
     border: 1px solid rgb(102, 102, 102);
