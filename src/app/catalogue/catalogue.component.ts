@@ -11,13 +11,19 @@ import { ArticleService } from '../article.service';
 })
 export class CatalogueComponent implements OnInit {
   articles: Array<Article>;
+  query:string = null
 
   constructor(private http: HttpClient,private router: Router,private artsrv: ArticleService) { }
 
   ngOnInit(): void {
-    this.artsrv.findall().subscribe(
-    reponse=>{this.articles=reponse}
-    );
+    this.artsrv.findall().subscribe(reponse => this.articles=reponse)
+  }
+
+  searchbyname():void {
+    if (this.query && this.query != "")
+      this.artsrv.findbyname(this.query).subscribe(response => this.articles = response)
+    else
+    this.ngOnInit()
   }
 
   goTo(id:number):void {
