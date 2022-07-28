@@ -64,7 +64,8 @@ export class ClientService {
         "Content-Type": "application/json"
       })
     }).
-      subscribe(response => {console.log("crud service post OK");      
+      subscribe(response => {console.log("crud service post OK"); 
+      this.router.navigate(['confirmationinscription'])     
     },err => {console.log("crud service post KO")});  
   }
 

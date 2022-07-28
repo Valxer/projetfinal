@@ -22,7 +22,7 @@ export class InscriptionComponent implements OnInit {
    */
   create(){
     this.srv.create(this.newclient);
-    this.router.navigate(['confirmationinscription'])
+    
   }
 
 }
