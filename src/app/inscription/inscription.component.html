@@ -1,8 +1,24 @@
 
 <div class="d-flex flex-column align-items-center">
-    <div class="d-flex flex-column align-items-center">
         <h3>Veuillez remplir ces champs pour vous inscrire</h3>
-        <p class="mb-0"><label for="nom">Identifiant</label></p>
+        <form [formGroup]="profileForm" (ngSubmit)="create()" class="d-flex flex-column align-items-center">
+
+            <label for="first-name">Identifiant: </label>
+            <input id="first-name" type="text" formControlName="id">
+            <label for="first-name">Nom: </label>
+            <input id="first-name" type="text" formControlName="nom">
+            <label for="first-name">Prenom: </label>
+            <input id="first-name" type="text" formControlName="prenom">
+            <label for="first-name">Adresse: </label>
+            <input id="first-name" type="text" formControlName="adresse">
+            <label for="last-name">Mot de Passe: </label>
+            <input id="last-name" type="password" formControlName="mdp">
+          
+            <p *ngIf="!profileForm.valid">Pour valider, veuiller remplir le formulaire</p>
+            <button class="my-4 btn btn-primary" type="submit" [disabled]="!profileForm.valid">S'inscrire</button>
+        </form>
+
+        <!-- <p class="mb-0"><label for="nom">Identifiant</label></p>
         <input name = "login"  type = "text" placeholder="Votre Identifiant" [(ngModel)]="newclient.id" required #login="ngModel">
         <div *ngIf="login.invalid && (login.dirty || login.touched)" >
             <div *ngIf="login.errors?.['required']" class="validation">
@@ -42,6 +58,5 @@
             </span>
         </div>
         <br>
-        <button (click)="create()" type="submit" class="btn btn-primary"> S'inscrire</button>
-    </div>
+        <button (click)="create()" type="submit" class="btn btn-primary"> S'inscrire</button> -->
 </div>
