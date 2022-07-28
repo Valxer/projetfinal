@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'connexion', component: ConnexionComponent, canActivate: [UnloggedGuard]},
   {path: 'admin', component: AdminconnexionComponent},
   {path: 'inscription', component: InscriptionComponent, canActivate: [UnloggedGuard]},
-  {path: 'confirmationconnexion', component: ConfirmationconnexionComponent, canActivate: [IsLoggedGuard]},
+  {path: 'confirmationconnexion', component: ConfirmationconnexionComponent},
   {path: 'confirmationinscription', component: ConfirmationinscriptionComponent, canActivate: [UnloggedGuard]},
   {path: 'erreurconnexion', component: ErreurconnexionComponent, canActivate: [UnloggedGuard]},
   {path: 'monpanier', component: MonpanierComponent, canActivate: [IsLoggedGuard]},
