@@ -10,7 +10,7 @@ import { ArticleService } from '../article.service';
   styleUrls: ['./catalogue.component.scss']
 })
 export class CatalogueComponent implements OnInit {
-  articles: Array<Article>;
+  articles: Array<Article> = [];
   query:string = null
 
   constructor(private http: HttpClient,private router: Router,private artsrv: ArticleService) { }

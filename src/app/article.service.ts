@@ -42,8 +42,8 @@ export class ArticleService {
         "Content-Type": "application/json"
       })
     }).
-      subscribe(response => {console.log("crud service post OK");      
-    },err => {console.log("crud service post KO")});  
+      subscribe(response => {console.log("article créé");      
+    },err => {console.log("une erreur est survenue pendant la création de l'article")});  
   }
 
   /**

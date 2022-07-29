@@ -64,7 +64,7 @@ export class ClientService {
         "Content-Type": "application/json"
       })
     }).
-      subscribe(response => {console.log("crud service post OK"); 
+      subscribe(response => {console.log("client créé avec succès"); 
       this.router.navigate(['confirmationinscription'])     
     },err => {
       if (err.status == 400)
@@ -87,7 +87,7 @@ export class ClientService {
         this.router.navigate(['/erreurconnexion']);
       } 
     },
-    err=>{console.log("***************KO");
+    err=>{console.log("erreur de connexion");
     this.router.navigate(['/erreurconnexion']);
     });
   }
